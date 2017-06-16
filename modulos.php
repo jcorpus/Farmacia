@@ -6,6 +6,7 @@
   //session_start();
 #obtener toda la info del usuario, nombre, email, etc
   //require('core/bin/funciones/get_users.php');
+//$tipo_user = $usuarios[$_SESSION['app_id']]['DesTipoUsuario'];
 
 $usuarios = ver_usuarios();
   if(isset($_SESSION['app_id'])){ //si no esta definida la variable session, el usuario no esta definido
@@ -22,6 +23,8 @@ $usuarios = ver_usuarios();
 
   }
 
+
+//if ($_SESSION['app_id'] && $tipo_user == "Administrador") {
 
 
 

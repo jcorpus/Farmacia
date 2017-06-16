@@ -70,9 +70,9 @@ function enviar_datos($email_recuperar){
     //Tenemos que usar gmail autenticados, así que esto a TRUE
     $mail->SMTPAuth   = true;
     //Definimos la cuenta que vamos a usar. Dirección completa de la misma
-    $mail->Username   = "jsuproc@gmail.com";
+    $mail->Username   = "miemail@gmail.com";
     //Introducimos nuestra contraseña de gmail
-    $mail->Password   = "jccm01121314mc";
+    $mail->Password   = "contraseña";
     //Definimos el remitente (dirección y, opcionalmente, nombre)
     $mail->SetFrom($email_recuperar, 'Farmacia - Contraseña olvidada');
     //Y, ahora sí, definimos el destinatario (dirección y, opcionalmente, nombre)

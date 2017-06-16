@@ -146,7 +146,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
                   <label class="col-sm-4 control-label">Nombre</label>
                   <div class="col-sm-5">
                     <input hidden="" type="text" name="id_persona" id="id_persona">
-                    <input type="text" name="email_usuarior" id="email_usuarior">
+                    <input hidden="" type="text" name="email_usuarior" id="email_usuarior">
                     <input type="text" name="nombre_persona" onkeypress="return solo_letras(event);" class="form-control validacion" value="" disabled="" id="nombre_persona" placeholder="nombre" maxlength="40">
                   </div>
                   

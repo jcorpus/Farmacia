@@ -11,9 +11,11 @@ class Usuario {
   }
 
 
+//$this->db->rows($verificar) == 0
+
   function registro_user($id_persona,$usuario_nombre, $pass_encrip, $usuario_img, $fecha_registro, $estado_user,$email_usuarior){
-    $verificar = $this->db->query("SELECT alm_usuario.perso_id FROM alm_usuario WHERE alm_usuario.perso_id = $id_persona LIMIT 1");
-    if (true) {
+    $verificar = $this->db->query("SELECT usuario.usu_email FROM alm_usuario usuario WHERE usu_email = '$email_usuarior' LIMIT 1");
+    if ($this->db->rows($verificar) == 0) {
       $consulta = "INSERT INTO alm_usuario(perso_id,usu_nom,usu_pass,usu_email,usu_freg,usu_img,usu_est) 
         VALUES('$id_persona','$usuario_nombre','$pass_encrip','$email_usuarior',
         '$fecha_registro','$usuario_img','$estado_user')";
@@ -31,7 +33,16 @@ class Usuario {
       }
       $this->db->liberar($verificar);
       $this->db->close();
+    }else{
+      $email_verificar = $this->db->recorrer($verificar)[0];
+      if (strtolower($email_usuarior) == strtolower($email_verificar)) {
+        echo '<div class="alert alert-warning alert-dismissible" id="correcto">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <i class="icon fa fa-times"></i>&nbsp;El email ya esta registrado
+          </div>';
+      }
     }
+    $this->db->close();
   }
 
 }
