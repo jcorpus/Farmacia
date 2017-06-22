@@ -12,7 +12,8 @@ function ver_usuarios(){
         'usu_nom' => $d['usu_nom'],
         'perso_email' => $d['perso_email'],       
         'usu_est' =>$d['usu_est'],
-        'usu_img' =>$d['usu_img']
+        'usu_img' =>$d['usu_img'],
+        'usu_id' =>$d['usu_id']
       );
     }
   }else{

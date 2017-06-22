@@ -89,7 +89,7 @@ function ObtenerIP()
 $ip2 = ObtenerIP();
 $ip = ambil_ip();
 $date1=date("Y/m/d H:i:s"); 
-echo "fsdfsdfd";
+
 	
 	
 	/*

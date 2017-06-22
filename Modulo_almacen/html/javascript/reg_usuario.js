@@ -4,22 +4,21 @@ function __(id){
 }
 
 function validar_email_usuario(){
-    var email = $("#email_alumno");
+    var email = $("#email_usuarior");
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (email.val() == '' || !re.test(email.val()))
     {
-      $("#email_alumno").addClass('error_email');
-      $("#email_alumno").removeClass('email_valido');
+      $("#email_usuarior").addClass('error_email');
+      $("#email_usuarior").removeClass('email_valido');
       $(".mail_incorrecto").html("Email incorrecto");
       return false;
     }
      else{
-       $("#email_alumno").removeClass('error_email');
-       $("#email_alumno").addClass('email_valido');
+       $("#email_usuarior").removeClass('error_email');
+       $("#email_usuarior").addClass('email_valido');
        $(".mail_incorrecto").html("");
        return true;
      }
-
 }
 
 /****************Validar campos vacios*************/
@@ -61,11 +60,11 @@ function registrar_usuario(){
   //var validar_email =validar_email_alumno();
   //console.log("el email trae: "+validar_email);
   
-  //var respuesta = validate();
+  var respuesta = validate();
 
-  //console.log("respuesta "+respuesta);
+  console.log("respuesta "+respuesta);
 
-  if (true) {
+  if (respuesta) {
 
   //var emaill = document.getElementById("get_pass_user").value;
   var formusuario = new FormData($("#formulario_usuario")[0]);
@@ -120,11 +119,11 @@ function registrar_usuario(){
 	});
 
 }else{
-  msjpass = '<div class="alert alert-dismissible alert-warning"> ';
+  msjpass = '<div class="alert alert-dismissible alert-danger"> ';
   msjpass += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-  msjpass += ' <p> Faltan Datos </p>'
+  msjpass += ' <i class="icon fa fa-times"></i>&nbsp; Faltan Datos'
   msjpass += '</div>';
-  document.getElementById('msj_res_usuario').innerHTML = msjpass;
+  document.getElementById('msj_persona').innerHTML = msjpass;
 }
 
 }

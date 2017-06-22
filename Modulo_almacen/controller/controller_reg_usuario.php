@@ -1,8 +1,8 @@
 <?php
 
-
 require ("../model/model_user.php");
 require ("../core/bin/funciones/encriptar_pass.php");
+
 
 date_default_timezone_set('America/Lima');
 $fecha_registro = date("Y-m-d");
@@ -21,6 +21,11 @@ $estado_user = '1';
 if($pass_user == $pass_user2){
 
 	$pass_encrip = encriptar2($_POST['pass_user']);
+
+	$instancia = new Usuario();
+	$consulta = $instancia->registro_user($id_persona,$usuario_nombre, $pass_encrip, $usuario_img, $fecha_registro, $estado_user,$email_usuarior);
+
+	echo $consulta;
 		
 }else{
 	echo '<div class="alert alert-danger alert-dismissible" id="">
@@ -30,10 +35,7 @@ if($pass_user == $pass_user2){
 }
 
 
-	$instancia = new Usuario();
-	$consulta = $instancia->registro_user($id_persona,$usuario_nombre, $pass_encrip, $usuario_img, $fecha_registro, $estado_user,$email_usuarior);
 
-	echo $consulta;
 
 
 

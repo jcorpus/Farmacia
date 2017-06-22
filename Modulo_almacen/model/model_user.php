@@ -38,7 +38,7 @@ class Usuario {
       if (strtolower($email_usuarior) == strtolower($email_verificar)) {
         echo '<div class="alert alert-warning alert-dismissible" id="correcto">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <i class="icon fa fa-times"></i>&nbsp;El email ya esta registrado
+          <i class="icon fa fa-times"></i>&nbsp;El usuario ya esta registrado
           </div>';
       }
     }

@@ -27,19 +27,31 @@
             <a href="../Modulos.php" target="_blank">
               <i class="fa fa-home fa-lg"></i>
               <span class="hidden-xs">
+                Otros          
+              </span>
+            </a>
+
+          </li>
+          <li >
+            <!-- Menu Toggle Button -->
+            <a href="../Modulos.php" target="_blank">
+              <i class="fa fa-home fa-lg"></i>
+              <span class="hidden-xs">
                 Modulos          
               </span>
             </a>
 
           </li>
           <li>
-            <a href="admin.php?p=salir">Salir</a>&nbsp;
-
+            <a href="admin.php?p=salir">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Salir &nbsp;
+            </a>
           </li>
 
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></a>
           </li>
         </ul>
       </div>
@@ -77,7 +89,17 @@
       <ul class="sidebar-menu">
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
-
+        
+        <li class="treeview">
+          <a href="#"><i class="fa fa-male fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Persona</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?p=reg_persona"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Registro</a></li>
+          </ul>
+        </li>
         <li class="treeview">
           <a href="#"><i class="fa fa-male fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Usuario</span>
             <span class="pull-right-container">

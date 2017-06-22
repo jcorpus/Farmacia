@@ -63,7 +63,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
 
   </div>
 
-  <!-- modal olvido <password-->q</password-->
+  <!-- modal olvido <password password-->
   <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
       <div class="modal-content">
@@ -80,7 +80,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
           <div onkeypress="return run_rec_password(event);">
             <div class="form-group">
               <label for="recipient-name" class="form-control-label">Tu email:</label>
-              <input type="mail" class="form-control" id="get_pass_user">
+              <input type="email" class="form-control" id="get_pass_user">
             </div>
           </div>
           <div class="form-group">
@@ -94,7 +94,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
               <a href="javascript:void(0)" onclick="document.getElementById('valor').src='Modulo_almacen/captcha2.php'" ><img src="Modulo_almacen/site_media/img/refresh.png" alt=""></a>
               </div>
               <div class="col-sm-3">
-                <input type="text" class="form-control" id="valor_captcha" maxlength="5" name="valor_captcha">
+                <input type="text" style="border-color: #bebebe;border-radius: 4px;" class="form-control" id="valor_captcha" maxlength="5" name="valor_captcha">
               </div>
           </div>
           <br>
@@ -145,8 +145,8 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
                 <div class="form-group">
                   <label class="col-sm-4 control-label">Nombre</label>
                   <div class="col-sm-5">
-                    <input hidden="" type="text" name="id_persona" id="id_persona">
-                    <input hidden="" type="text" name="email_usuarior" id="email_usuarior">
+                    <input hidden="" class="validacion" type="text" name="id_persona" id="id_persona">
+                    <input hidden="" class="validacion" type="text" name="email_usuarior" id="email_usuarior">
                     <input type="text" name="nombre_persona" onkeypress="return solo_letras(event);" class="form-control validacion" value="" disabled="" id="nombre_persona" placeholder="nombre" maxlength="40">
                   </div>
                   
@@ -173,7 +173,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
                 <div class="form-group">
                   <label class="col-sm-4 control-label">Repetir Contraseña</label>
                   <div class="col-sm-5">
-                    <input type="text" name="pass2_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass2_user" placeholder="repetir contraseña" maxlength="40">
+                    <input type="text"  name="pass2_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass2_user" placeholder="repetir contraseña" maxlength="40">
                   </div>
                   
                 </div>

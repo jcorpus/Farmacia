@@ -5,7 +5,7 @@ require('core/core2.php');
 $usuarios = ver_usuarios();
 //$categoria_tesis = listar_categoria();
 $estado_user = $usuarios[$_SESSION['app_id']]['usu_est'];
-print_r("el estado es: ".$estado_user);
+//print_r("el estado es: ".$estado_user);
 
 if ($_SESSION['app_id'] && $estado_user == 1) {
   

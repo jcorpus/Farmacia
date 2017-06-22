@@ -9,6 +9,11 @@ else if($_GET['p'] == 'registrar'){
 	$contenido = 'view/usuario/registro_usuario.php';
 	#$script = 'html/javascript/image_cumple.js';
 }
+else if($_GET['p'] == 'reg_persona'){
+	$titulo = 'Registro';
+	$contenido = 'view/persona/registro_persona.php';
+	#$script = 'html/javascript/image_cumple.js';
+}
 else if($_GET['p'] == 'listar'){
 	$titulo = 'Listar';
 	$contenido = 'view/usuario/lista_usuario.php';
