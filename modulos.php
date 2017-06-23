@@ -11,6 +11,7 @@
 $usuarios = ver_usuarios();
   if(isset($_SESSION['app_id'])){ //si no esta definida la variable session, el usuario no esta definido
 
+
     require 'Modulo_almacen/core/site_map_home.php';
     require 'Modulo_almacen/html/home/topnav.php';
     require 'Modulo_almacen/html/home/header.php';

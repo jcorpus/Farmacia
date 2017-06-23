@@ -16,6 +16,17 @@ function ver_usuarios(){
         'usu_id' =>$d['usu_id']
       );
     }
+
+    //insertando 
+    $id_obtenido = $usuarios[$_SESSION['app_id']]['perso_id'];
+    $fecha_bitacora = date('Y-m-d');
+    //echo("valores: ".$id_obtenido);
+    //echo "<script>alert('hola por aca'.$id_obtenido); </script>";
+    //$sql2 = "INSERT INTO alm_bitacora(usu_id,bit_fechra) VALUES ('$id_obtenido','$fecha_bitacora')";  
+    //$db->query($sql2);
+
+
+
   }else{
     $usuarios = false;
 

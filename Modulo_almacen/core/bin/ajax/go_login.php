@@ -15,29 +15,31 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
     //$sql = $db->query("SELECT usuario.idUsuario,persona.Email, usuario.Usuario FROM usuario inner join persona on persona.idPersona = usuario.idPersona WHERE (usuario.Usuario='$user' OR persona.Email='$user') AND usuario.Password='$pass' LIMIT 1 ");
     $sql = $db->query("SELECT persona.perso_id, usuario.usu_id, usuario.usu_email, usuario.usu_pass FROM alm_usuario usuario inner JOIN alm_persona persona ON usuario.perso_id = persona.perso_id WHERE usuario.usu_email = '$user' AND usuario.usu_pass = '$pass'  AND usuario.usu_est = 1 LIMIT 1 ");
     
-    $fecha_ingreso = date('Y-m-d');
-
+    
     if($db->rows($sql)>0){
-      echo 1;  
+       $_SESSION['app_id'] = $db->recorrer($sql)[0]; //le asigno la sesion al usuario que ingresa en la consulta de arriba.
+       $obtener_id = $_SESSION['app_id'];
+       $fecha_ingreso = date('Y-m-d');
+      echo 1; 
 
-        //'$obtener_id','$fecha_ingreso','$bit_accion','$clave_ol','$clave_new','$bit_ip','$fin_sesion'
+
+      $sql2 = "INSERT INTO alm_bitacora(usu_id,bit_fechra) VALUES ('$obtener_id','$fecha_ingreso')";  
+      $db->query($sql2);
+ 
+    
+    //'$obtener_id','$fecha_ingreso','$bit_accion','$clave_ol','$clave_new','$bit_ip','$fin_sesion'
 
 
     //  ini_set('session_cookie_lifetime', time() + (60*60*24)); //un dia entero
+      
       if($_POST['sesion']){
         ini_set('session.cookie_lifetime', time() + (60*60*24));
       }
-      $id_obtenido = $db->recorrer($sql)[1];   
       
-      $_SESSION['app_id'] = $db->recorrer($sql)[0]; //le asigno la sesion al usuario que ingresa en la consulta de arriba.
-    
 
-    
-    //print_r($db->recorrer($sql)[0]);
-    $sql2 = "INSERT INTO alm_bitacora(usu_id) VALUES ('$id_obtenido')";  
+      //$id_obtenido = 1;
+      //print_r($db->recorrer($sql)[0]);
       
-    $db->query($sql2);
-
     }else{
       
       //$conta = $_SESSION['intentos'] = $_SESSION['intentos'] + 1;
@@ -58,12 +60,7 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
     <strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp; Debes ingresar Datos</strong>
 </div>';
 
-
-
 }
-
-
-
 
 
 

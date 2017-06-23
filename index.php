@@ -38,8 +38,8 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
 
                 <form class="form-signin" onkeypress="return runLogin(event);">
                     <span id="reauth-email" class="reauth-email"></span>
-                    <input type="text" id="user_email" name="user_email" class="form-control" placeholder="Usuario" maxlength="100" >
-                    <input type="password" id="user_password" name="user_password" class="form-control" placeholder="Password" >
+                    <input type="text" id="user_email" value="doombakuryo@gmail.com" name="user_email" class="form-control" placeholder="Usuario" maxlength="100" >
+                    <input type="password" value="123456" id="user_password" name="user_password" class="form-control" placeholder="Password" >
                     <div id="remember" class="checkbox">
                         <label>
                             <input type="checkbox" id="sesion_login" value="remember-me"> Recordarme
