@@ -3,8 +3,8 @@
 
 //http://php.net/manual/es/ref.mysql.php
 
-
-require('Modulo_almacen/core/bin/funciones/encriptar_pass.php');
+require('../../models/model_conexion.php');
+require('../funciones/encriptar_pass.php');
 //$_SESSION['intentos'] = 0;
 if(!empty($_POST['user']) and !empty($_POST['pass'])){
 
@@ -15,8 +15,11 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
     //$sql = $db->query("SELECT usuario.idUsuario,persona.Email, usuario.Usuario FROM usuario inner join persona on persona.idPersona = usuario.idPersona WHERE (usuario.Usuario='$user' OR persona.Email='$user') AND usuario.Password='$pass' LIMIT 1 ");
     $sql = $db->query("SELECT persona.perso_id, usuario.usu_id, usuario.usu_email, usuario.usu_pass FROM alm_usuario usuario inner JOIN alm_persona persona ON usuario.perso_id = persona.perso_id WHERE usuario.usu_email = '$user' AND usuario.usu_pass = '$pass'  AND usuario.usu_est = 1 LIMIT 1 ");
     
-    
+    //$verificar_permiso = $db->query("");
+
     if($db->rows($sql)>0){
+
+
        $_SESSION['app_id'] = $db->recorrer($sql)[0]; //le asigno la sesion al usuario que ingresa en la consulta de arriba.
        $obtener_id = $_SESSION['app_id'];
        $fecha_ingreso = date('Y-m-d');

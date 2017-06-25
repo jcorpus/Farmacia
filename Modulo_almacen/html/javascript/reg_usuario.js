@@ -3,6 +3,7 @@ function __(id){
   return document.getElementById(id);
 }
 
+
 function validar_email_usuario(){
     var email = $("#email_usuarior");
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -168,11 +169,21 @@ function buscar_persona(){
 
      }
     }else{
+
       msjpass = '<div class="alert alert-dismissible alert-danger"> ';
       msjpass += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
       msjpass += ' <p> El dni no existe .....</p>'
       msjpass += '</div>';
       document.getElementById('msj_persona').innerHTML = msjpass;  
+        
+        //limpiando datos
+        $("#dni_persona").val('');
+        $("#id_persona").val('');
+        $("#email_usuarior").val('');
+        $("#nombre_persona").val('');
+        $("#ape_persona").val('');
+        $("#pass_user").val('');
+        $("#pass2_user").val('');
     }
 
         
@@ -189,7 +200,15 @@ function buscar_persona(){
   });
 
 
+}
 
 
+function limpiar_datos(){
+
+  $("#dni_persona").val('');
+  $("#id_persona").val('');
+  $("#email_usuarior").val('');
+  $("#nombre_persona").val('');
+  $("#ape_persona").val('');
 
 }

@@ -1,4 +1,4 @@
-<?php require('Modulo_almacen/core/core.php');
+<?php require('Modulo_almacen/core/models/model_conexion.php');
 
 if (isset($_SESSION['app_id'])) { //esta definida app_id
   echo '<script> window.location="modulos.php"; </script>';
@@ -165,7 +165,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
                 <div class="form-group">
                   <label class="col-sm-4 control-label">Contraseña</label>
                   <div class="col-sm-5">
-                    <input type="text" name="pass_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass_user" placeholder="contraseña" maxlength="40">
+                    <input type="password" name="pass_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass_user" placeholder="contraseña" maxlength="40">
                   </div>
                   
                 </div>
@@ -173,7 +173,7 @@ if (isset($_SESSION['app_id'])) { //esta definida app_id
                 <div class="form-group">
                   <label class="col-sm-4 control-label">Repetir Contraseña</label>
                   <div class="col-sm-5">
-                    <input type="text"  name="pass2_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass2_user" placeholder="repetir contraseña" maxlength="40">
+                    <input type="password"  name="pass2_user" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="pass2_user" placeholder="repetir contraseña" maxlength="40">
                   </div>
                   
                 </div>

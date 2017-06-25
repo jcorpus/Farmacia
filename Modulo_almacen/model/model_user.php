@@ -7,7 +7,7 @@ class Usuario {
     private $db;
     public function __construct(){
     require_once('../core/models/model_conexion.php');
-    $this->db = new Conexion2();
+    $this->db = new Conexion();
   }
 
 

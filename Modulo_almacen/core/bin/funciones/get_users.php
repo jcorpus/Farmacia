@@ -13,13 +13,14 @@ function ver_usuarios(){
         'perso_email' => $d['perso_email'],       
         'usu_est' =>$d['usu_est'],
         'usu_img' =>$d['usu_img'],
-        'usu_id' =>$d['usu_id']
+        'usu_id' =>$d['usu_id'],
+        'permi_est' =>$d['permi_est']
       );
     }
 
     //insertando 
-    $id_obtenido = $usuarios[$_SESSION['app_id']]['perso_id'];
-    $fecha_bitacora = date('Y-m-d');
+    //$id_obtenido = $usuarios[$_SESSION['app_id']]['perso_id'];
+    //$fecha_bitacora = date('Y-m-d');
     //echo("valores: ".$id_obtenido);
     //echo "<script>alert('hola por aca'.$id_obtenido); </script>";
     //$sql2 = "INSERT INTO alm_bitacora(usu_id,bit_fechra) VALUES ('$id_obtenido','$fecha_bitacora')";  

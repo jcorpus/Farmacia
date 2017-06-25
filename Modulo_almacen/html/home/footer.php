@@ -2,7 +2,7 @@
 </div>
 
 <!-- Footer -->
-<div class="container footer_rp">
+<div class="container ">
 <footer>
 <div class="row">
     <div class="col-lg-12">
@@ -13,7 +13,7 @@
 </div>
 <!-- /.container -->
 <!-- Bootstrap Core JavaScript -->
-<script src="site_media/bootstrap/js/bootstrap.min.js"></script>
+<script src="Modulo_almacen/site_media/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 

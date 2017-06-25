@@ -165,8 +165,8 @@ img.prof{
     
     <img src="#" width="50px" class="prof"/>  
     <div class="right">
-      <h2>Administrador</h2>
-      <p>jcorpus</p>
+      <h2><?php echo $verificar_rol[6]; ?></h2>
+      <p><?php echo $verificar_rol[4]; ?></p>
     </div>
     <div class='spacer'>
       <a href="Modulo_almacen/admin.php" class='wide blue'>

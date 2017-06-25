@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modulos</title><!-- printf($titulo) -->
+    <title><?php printf($titulo) ?></title><!-- printf($titulo) -->
 
     <!-- Bootstrap Core CSS -->
     <link href="Modulo_almacen/site_media/bootstrap/css/bootstrap.css" rel="stylesheet">

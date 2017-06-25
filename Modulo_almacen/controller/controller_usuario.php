@@ -29,7 +29,7 @@ $respuesta = verificar_datos($dni_persona);
 echo json_encode($respuesta);
 
 function verificar_datos($dni_persona){
-	$db = new Conexion2;
+	$db = new Conexion;
 	$sql = $db->query("CALL sp_perso_buscar($dni_persona)");
 	if ($db->rows($sql) > 0) {
 

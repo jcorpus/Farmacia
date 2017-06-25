@@ -2,7 +2,7 @@
 include '../core/models/model_conexion.php';
 require('../core/bin/funciones/rec_pass_template.php');
 require ('../core/bin/funciones/encriptar_pass.php');
-session_start();
+//session_start();
 $email_rec = $_POST['emaill'];
 $valor_captcha = trim($_POST['valor_captcha']);
 $email_recuperar = trim($email_rec);
@@ -28,7 +28,7 @@ echo "el valor de la llave es: ".$_SESSION['key'];
 
 function enviar_datos($email_recuperar){
   
-  $db = new Conexion2;
+  $db = new Conexion;
   $sql = $db->query("CALL sp_verificar_email('$email_recuperar')");
 
   if ($db->rows($sql) > 0) {
@@ -70,7 +70,7 @@ function enviar_datos($email_recuperar){
     //Tenemos que usar gmail autenticados, así que esto a TRUE
     $mail->SMTPAuth   = true;
     //Definimos la cuenta que vamos a usar. Dirección completa de la misma
-    $mail->Username   = "miemail@gmail.com";
+    $mail->Username   = "tuemail@gmail.com";
     //Introducimos nuestra contraseña de gmail
     $mail->Password   = "contraseña";
     //Definimos el remitente (dirección y, opcionalmente, nombre)

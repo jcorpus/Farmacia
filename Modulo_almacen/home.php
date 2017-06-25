@@ -2,7 +2,8 @@
 <?php
 
 
-  require('core/core.php');
+require('core/models/model_conexion.php');
+require('core/bin/funciones/get_users.php');
   //session_start();
 #obtener toda la info del usuario, nombre, email, etc
   //require('core/bin/funciones/get_users.php');

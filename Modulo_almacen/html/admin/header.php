@@ -43,7 +43,7 @@
 
           </li>
           <li>
-            <a href="admin.php?p=salir">
+            <a href="core/controller/salirController.php">
               <i class="fa fa-sign-out" aria-hidden="true"></i>
             Salir &nbsp;
             </a>
@@ -71,7 +71,7 @@
         
         </div>
         <div class="pull-left info">
-          <p>JULIO CORPUS<p/>
+          <p><?php echo $usuarios[$_SESSION['app_id']]['usu_nom']; ?><p/>
           <!-- Status -->
           <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> Admin</a>
         </div>

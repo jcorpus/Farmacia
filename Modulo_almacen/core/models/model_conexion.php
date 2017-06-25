@@ -2,6 +2,12 @@
 <?php
 ///http://php.net/manual/es/mysqli.construct.php
 #constantes de conexion
+
+
+session_start();
+#fecha de la pag
+define('YEAR_APLICACION', 'Derchos Reservados '.date('Y',time()).' - Farmacia');
+
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
@@ -9,7 +15,7 @@ define('DB_NAME','bd_almacen_v3');
 
 date_default_timezone_set('America/Lima');
 
-class Conexion2 extends mysqli{
+class Conexion extends mysqli{
 
   public function __construct(){
     parent::__construct(DB_HOST,DB_USER,DB_PASS,DB_NAME);

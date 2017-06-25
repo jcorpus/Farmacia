@@ -49,7 +49,7 @@ function go_login(){
     }
 
   }
-  conectar.open('POST','ajax.php?mode=login',true);
+  conectar.open('POST','Modulo_almacen/core/bin/ajax/go_login.php',true);
   conectar.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
   conectar.send(form);
 

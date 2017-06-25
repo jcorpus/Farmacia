@@ -44,12 +44,11 @@
                          </li>
                        </ul>
                     </li>
-                    
                     <li>
-                        <a href="modulos.php?view=salir">Salir</a>&nbsp;
+                        <a href="modulos.php?view=salir">Salir</a>
                     </li>
                     <li>
-                        <img width="45px" src="<?php echo "Modulo_almacen/".$usuarios[$_SESSION['app_id']]['usu_img']; ?>"  class="img-circle" alt="User Image">
+                        &nbsp;&nbsp;&nbsp;<img width="45px" src="<?php echo "Modulo_almacen/".$usuarios[$_SESSION['app_id']]['usu_img']; ?>"  class="img-circle" alt="User Image">
                     </li>
                 </ul>
             </div>
