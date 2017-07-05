@@ -67,13 +67,14 @@
       <div class="user-panel">
         <div class="pull-left image">
         
-          <img src="html/img_server/user-default.png"  class="img-circle" alt="User Image">
+          <img src="<?php echo $usuarios[$_SESSION['app_id']]['usu_img']; ?>"  class="img-circle" alt="User Image">
         
         </div>
         <div class="pull-left info">
-          <p><?php echo $usuarios[$_SESSION['app_id']]['usu_nom']; ?><p/>
+          <p><?php echo $usuarios[$_SESSION['app_id']]['perso_nom']; echo " ".$usuarios[$_SESSION['app_id']]['usu_id']; ?><p/>
+          
           <!-- Status -->
-          <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> Admin</a>
+          <a href="javascript:void(0)"><i class="fa fa-circle text-success"></i> <?php echo $usuarios[$_SESSION['app_id']]['usu_nom']; ?></a>
         </div>
       </div>
 
@@ -88,6 +89,7 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">Menu</li>
+        <input type="text" id="usuarioa_id" name="usuarioa_id" value=" <?php echo $usuarios[$_SESSION['app_id']]['usu_id']; ?> ">
         <!-- Optionally, you can add icons to the links -->
         
         <li class="treeview">
@@ -129,6 +131,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="?p=reg_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
+            <li><a href="?p=reg_categoria"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Categoria</a></li>
+            <li><a href="?p=reg_marca"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Marca</a></li>
             <li><a href="?p=list_producto"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Listar Productos</a></li>
           </ul>
         </li>

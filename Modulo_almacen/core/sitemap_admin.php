@@ -7,12 +7,22 @@ if(!isset($_GET['p'])){
 else if($_GET['p'] == 'registrar'){
 	$titulo = 'Registro';
 	$contenido = 'view/usuario/registro_usuario.php';
-	#$script = 'html/javascript/image_cumple.js';
+	
 }
 else if($_GET['p'] == 'reg_persona'){
 	$titulo = 'Registro';
 	$contenido = 'view/persona/registro_persona.php';
-	#$script = 'html/javascript/image_cumple.js';
+	
+}
+else if($_GET['p'] == 'reg_categoria'){
+	$titulo = 'Registro Categoria';
+	$contenido = 'view/producto/registro_categoria.php';
+	
+}
+else if($_GET['p'] == 'reg_marca'){
+	$titulo = 'Registro de Marca';
+	$contenido = 'view/producto/registro_marca.php';
+	
 }
 else if($_GET['p'] == 'listar'){
 	$titulo = 'Listar';

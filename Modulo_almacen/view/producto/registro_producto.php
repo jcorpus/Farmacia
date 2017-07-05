@@ -141,6 +141,17 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Concentracion.</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control">
+                    </div>
+                    <label  class="col-sm-2 control-label">Fracción.</label>
+                    <div class="col-sm-4">
+                     <input type="text" class="form-control">
+                    </div>
+                </div>
+
               </div>
               <!-- /.box-body -->
               <div class="box-footer text-center">

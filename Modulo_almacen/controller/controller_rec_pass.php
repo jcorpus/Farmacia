@@ -70,7 +70,7 @@ function enviar_datos($email_recuperar){
     //Tenemos que usar gmail autenticados, así que esto a TRUE
     $mail->SMTPAuth   = true;
     //Definimos la cuenta que vamos a usar. Dirección completa de la misma
-    $mail->Username   = "tuemail@gmail.com";
+    $mail->Username   = "email@gmail.com";
     //Introducimos nuestra contraseña de gmail
     $mail->Password   = "contraseña";
     //Definimos el remitente (dirección y, opcionalmente, nombre)

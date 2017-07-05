@@ -19,7 +19,7 @@ if ($_SESSION['app_id'] && $estado_user == 1 && $permiso_user == 1) {
   
 }else{
   
-  header('Location: index.php');
+  header('Location: ../index.php');
 
 }
 
