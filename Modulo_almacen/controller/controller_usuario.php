@@ -30,7 +30,17 @@ echo json_encode($respuesta);
 
 function verificar_datos($dni_persona){
 	$db = new Conexion;
-	$sql = $db->query("CALL sp_perso_buscar($dni_persona)");
+	//$sql = $db->query("CALL sp_perso_buscar($dni_persona)");
+	$sql = $db->query("select
+glb_persona.perso_id as id_persona,
+glb_persona.perso_nom as Nombre,
+glb_persona.perso_app as Ape_Paterno,
+glb_persona.perso_apm as Ape_Materno,
+glb_persona.perso_numdoc as ndocumento,
+glb_persona.perso_email as email_persona
+from glb_persona
+where glb_persona.perso_numdoc = $dni_persona");
+
 	if ($db->rows($sql) > 0) {
 
 		/*

@@ -165,7 +165,7 @@ img.prof{
     
     <img src="#" width="50px" class="prof"/>  
     <div class="right">
-      <h2><?php echo $verificar_rol[6]; ?></h2>
+      <h2> ROL: <?php echo $verificar_rol[6]; ?></h2>
       <p><?php echo $verificar_rol[4]; ?></p>
     </div>
     <div class='spacer'>
@@ -178,17 +178,17 @@ img.prof{
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <h2>Compras</h2>
       </a>
-      <a href="javascript://" class='wide lime'>
+      <a href="venta/index.php" class='wide lime'>
         <i class="fa fa-credit-card" aria-hidden="true"></i>
         <h2>Ventas</h2>
       </a>
       
-      <a href="javascript://" class='wide redgay'>
+      <a href="SistemaPlanilla/Vista/Plantilla/home.php" class='wide redgay'>
         <i class="fa fa-tasks" aria-hidden="true"></i>
         <h2>Planilla</h2>
       </a>
       
-      <a href="javascript://" class='wide yellow'>
+      <a href="Modulo_finanzas/production/index.php" class='wide yellow'>
         <i class="fa fa-usd" aria-hidden="true"></i>
         <h2>Finanzas</h2>
       </a>

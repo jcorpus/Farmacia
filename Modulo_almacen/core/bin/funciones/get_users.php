@@ -3,7 +3,12 @@ function ver_usuarios(){
   $db = new Conexion();
   //$sql = $db->query("SELECT * FROM usuarios");
   //$sql = $db->query("SELECT* FROM usuarios inner join persona on persona.id_persona = usuarios.id_persona ");
-  $sql = $db->query("call sp_listar_usuarios()");
+  //$sql = $db->query("call sp_listar_usuarios()");
+
+  
+  $sql = $db->query("SELECT glb_persona.perso_id,glb_persona.perso_nom, glb_persona.perso_app, glb_persona.perso_apm, glb_persona.perso_email,usuario.usu_id, usuario.usu_nom, usuario.usu_est, usuario.usu_img, permiso.permi_est FROM alm_usuario usuario INNER JOIN glb_persona ON usuario.perso_id = glb_persona.perso_id INNER JOIN alm_permiso permiso ON usuario.usu_id = permiso.usu_id");
+  
+
   if ($db->rows($sql) > 0) {
     while($d = $db->recorrer($sql)){
       $usuarios[$d['perso_id']] = array(

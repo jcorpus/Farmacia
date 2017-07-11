@@ -164,7 +164,7 @@ function buscar_persona(){
         $("#id_persona").val(data[i][0]);
         $("#nombre_persona").val(data[i][1]);
         $("#ape_persona").val(data[i][2]+' '+data[i][3]);
-        $("#email_usuarior").val(data[i][6]);
+        $("#email_usuarior").val(data[i][5]);
       }
 
      }

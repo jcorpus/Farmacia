@@ -89,7 +89,7 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">Menu</li>
-        <input type="text" id="usuarioa_id" name="usuarioa_id" value=" <?php echo $usuarios[$_SESSION['app_id']]['usu_id']; ?> ">
+        <input  hidden="" type="text" id="usuarioa_id" name="usuarioa_id" value=" <?php echo $usuarios[$_SESSION['app_id']]['usu_id']; ?> ">
         <!-- Optionally, you can add icons to the links -->
         
         <li class="treeview">
@@ -119,8 +119,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?p=reg_trabajador"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
-            <li><a href="?p=list_trabajador"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Listar Inve</a></li>
+            <li><a href="?p=reg_almacen"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -133,7 +132,11 @@
             <li><a href="?p=reg_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
             <li><a href="?p=reg_categoria"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Categoria</a></li>
             <li><a href="?p=reg_marca"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Marca</a></li>
+            <li><a href="?p=reg_tipo_prod"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Tipo de Producto</a></li>
+            <li><a href="?p=reg_lote"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Lote de Producto</a></li>
+            <li><a href="?p=reg_presentacion"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Presentacion</a></li>
             <li><a href="?p=list_producto"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Listar Productos</a></li>
+            
           </ul>
         </li>
         <li class="treeview">
@@ -154,7 +157,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?p=reg_tesis"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
+            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Listar</a></li>
           </ul>
         </li>
         <li class="treeview">

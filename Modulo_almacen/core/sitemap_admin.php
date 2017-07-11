@@ -24,6 +24,41 @@ else if($_GET['p'] == 'reg_marca'){
 	$contenido = 'view/producto/registro_marca.php';
 	
 }
+else if($_GET['p'] == 'reg_lote'){
+	$titulo = 'Registro de Lote';
+	$contenido = 'view/producto/registro_lote.php';
+	
+}
+else if($_GET['p'] == 'reg_kardex'){
+	$titulo = 'Registro de kardex';
+	$contenido = 'view/kardex/registro_kardex.php';
+	
+}
+else if($_GET['p'] == 'reg_almacen'){
+	$titulo = 'Registro de Almacen';
+	$contenido = 'view/almacen/registro_almacen.php';
+	
+}
+else if($_GET['p'] == 'list_almacen'){
+	$titulo = 'Lista de Almacen';
+	$contenido = 'view/almacen/listar_almacen.php';
+	
+}
+else if($_GET['p'] == 'reg_presentacion'){
+	$titulo = 'Registro de Presentacion';
+	$contenido = 'view/producto/registro_presentacion.php';
+	
+}
+else if($_GET['p'] == 'reg_tipo_prod'){
+	$titulo = 'Registro de Tipo de Producto';
+	$contenido = 'view/producto/registro_tipo_prod.php';
+	
+}
+else if($_GET['p'] == 'reportes'){
+	$titulo = 'Reportes';
+	$contenido = 'view/producto/registro_tipo_prod.php';
+	
+}
 else if($_GET['p'] == 'listar'){
 	$titulo = 'Listar';
 	$contenido = 'view/usuario/lista_usuario.php';

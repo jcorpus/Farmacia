@@ -10,10 +10,11 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
 
     $db = new Conexion();
     $user = $db->real_escape_string($_POST['user']);
-    $pass = encriptar2($_POST['pass']);
+    //$pass = encriptar2($_POST['pass']);
+    $pass = $_POST['pass'];
     //$sql = $db->query("SELECT id_usuario from usuarios WHERE (usuario='$user' OR email='$user') AND password='$pass' LIMIT 1 ");
     //$sql = $db->query("SELECT usuario.idUsuario,persona.Email, usuario.Usuario FROM usuario inner join persona on persona.idPersona = usuario.idPersona WHERE (usuario.Usuario='$user' OR persona.Email='$user') AND usuario.Password='$pass' LIMIT 1 ");
-    $sql = $db->query("SELECT persona.perso_id, usuario.usu_id, usuario.usu_email, usuario.usu_pass FROM alm_usuario usuario inner JOIN alm_persona persona ON usuario.perso_id = persona.perso_id WHERE usuario.usu_email = '$user' AND usuario.usu_pass = '$pass'  AND usuario.usu_est = 1 LIMIT 1 ");
+    $sql = $db->query("SELECT persona.perso_id, usuario.usu_id, usuario.usu_email, usuario.usu_pass FROM alm_usuario usuario inner JOIN glb_persona persona ON usuario.perso_id = persona.perso_id WHERE usuario.usu_email = '$user' AND usuario.usu_pass = '$pass'  AND usuario.usu_est = 1 LIMIT 1 ");
     
     //$verificar_permiso = $db->query("");
 

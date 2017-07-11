@@ -36,49 +36,42 @@
                   </div>
                   <label  class="col-sm-2 control-label">Marca</label>
                   <div class="col-sm-4">
-                    <select name="marca" id="" class="form-control">
-                      <option value="marca1">marca 1</option>
-                      <option value="marca1">marca 2</option>
-                      <option value="marca1">marca 3</option>
+                    <select name="marcap_datos" id="marcap_datos" class="form-control">
+                      
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label  class="col-sm-2 control-label">Tipo de Prod.</label>
                   <div class="col-sm-4">
-                    <select name="marca" id="" class="form-control">
-                      <option value="marca1">tipo 1</option>
-                      <option value="marca1">tipo 2</option>
+                    <select  id="tipoprod_datos" name="tipoprod_datos" class="form-control">
+                     
                       
                     </select>
                   </div>
                   <label  class="col-sm-2 control-label">Categoria</label>
 
                   <div class="col-sm-4">
-                    <select name="marca" id="" class="form-control">
-                      <option value="marca1">cat 1</option>
-                      <option value="marca1">cat 2</option>
+                    <select  id="categoriap_datos" name="categoriap_datos" class="form-control">
+                     
                       
                     </select>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label  class="col-sm-2 control-label">Presentacion</label>
+                  <label  class="col-sm-2 control-label">Fraccion</label>
 
                   <div class="col-sm-4">
-                    <select name="presentacion" id="" class="form-control">
-                      <option value="marca1">pre 1</option>
-                      <option value="marca1">pre 2</option>
-                      
-                    </select>
+                    <input type="text" name="" onkeypress="return solo_letras(event);" class="form-control validacion" value="" maxlength="40" id="" placeholder="fraccion">
                   </div>
-                  <label  class="col-sm-2 control-label">Proveedor</label>
+                  <label  class="col-sm-2 control-label">Presentacion</label>
 
                   <div class="col-sm-2">
                     <input type="text" name="" onkeypress="return solo_letras(event);" class="form-control validacion" value="" maxlength="40" id="" placeholder="proveedor">
                   </div>
                   <button type="button" name="buscar" id="buscar" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal_buscar_alumno">Buscar <span class="glyphicon glyphicon-search"></span></button>
+                  
                 </div>
                 <div class="form-group">
                 <label  class="col-sm-2 control-label">Cantidad</label>
@@ -87,9 +80,10 @@
                     <small class="mail_incorrecto"></small>
                   </div>
                   <label  class="col-sm-2 control-label">Cod. Lote</label>
-                  <div class="col-sm-4">
+                  <div class="col-sm-2">
                     <input type="text" name="" onkeypress="return solo_numeros(event);" class="form-control validacion" value="" id="" placeholder="" maxlength="10">
                   </div>
+                  <button type="button" name="buscar" id="buscar" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal_buscar_alumno">Buscar <span class="glyphicon glyphicon-search"></span></button>
                 </div>
 
                 <div class="form-group">
@@ -100,7 +94,7 @@
                   </div>
                   <label  class="col-sm-2 control-label">Fecha venc.</label>
                   <div class="col-sm-4">
-                    <input type="text" name="" onkeypress="return solo_numeros(event);" class="form-control validacion" value="" id="" placeholder="" maxlength="10">
+                   <input type="date" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento">
                   </div>
                 </div>
 
@@ -109,7 +103,8 @@
 
                   <div class="col-sm-4">
                     <select name="" class="form-control" id="">
-                      <option value="">ml</option>
+                      <option value="ml">ml</option>
+                      <option value="gr">gr</option>
                     </select>
                   </div>
                   <label  class="col-sm-2 control-label">Imagen Prod.</label>
@@ -146,10 +141,7 @@
                     <div class="col-sm-4">
                       <input type="text" class="form-control">
                     </div>
-                    <label  class="col-sm-2 control-label">Fracción.</label>
-                    <div class="col-sm-4">
-                     <input type="text" class="form-control">
-                    </div>
+                    
                 </div>
 
               </div>
@@ -193,6 +185,7 @@
 
 
 <script src="html/javascript/reg_producto.js"></script>
+<script src="html/javascript/listar_select.js"></script>
 <script>
   $('.file-input').on('change', function() {
     previewImage(this);
