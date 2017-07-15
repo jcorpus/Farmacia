@@ -12,11 +12,9 @@ function reg_presentacion(){
   //var emaill = document.getElementById("get_pass_user").value;
   //var formusuario = new FormData($("#formulario_categoria")[0]);
   var txtnpresentacion = $("#txtpresentacion").val();
-  var txtnpresentaciond = $("#txtpresentaciond").val();
   var txtusuario = $("#usuarioa_id").val();
-  alert("datos: "+txtnpresentacion+" - "+txtnpresentaciond);
-  //    data: 'tipo_usuario='+tipo_usuario+'&dato=r_titpo_user',
-
+  var estado_present = $("#txtestado_pre").val();
+  //alert("datos: "+txtnpresentacion+" usuario "+txtusuario+" estado "+estado_present);
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
 	$.ajax({
@@ -24,7 +22,7 @@ function reg_presentacion(){
 		type: 'POST',
     data: {
       txtnpresentacion:txtnpresentacion,
-      txtnpresentaciond:txtnpresentaciond,
+      estado_present:estado_present,
       txtusuario:txtusuario
     },
     cache:false,  //si el navegador debe almacenar en cache la pagina solicitada
@@ -45,21 +43,7 @@ function reg_presentacion(){
 		success: function(data){
 
     document.getElementById('msj_presentacion').innerHTML = data;
-
-    /*
-
-			if(respuesta.length>0){
-        msjpass = '<div class="alert alert-dismissible alert-success"> ';
-        msjpass += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-        msjpass += ' <p> Enviado Correctamente</p>'
-        msjpass += '</div>';
-        document.getElementById('msj_get_pass').innerHTML = msjpass;
-
-			}else{
-
-
-			}
-      */
+    listar_presentacion('','1');
 
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown, jqXHR){

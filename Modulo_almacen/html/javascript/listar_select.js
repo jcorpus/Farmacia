@@ -1,8 +1,9 @@
 $(document).ready(function(){
-
+cargar_unidad_medida();
 cargar_tipo_producto();
 cargar_categoria_producto();
 cargar_marca_producto();
+
 //cargar_unidadm_producto();
 
 
@@ -93,14 +94,16 @@ function cargar_categoria_producto(){
 
 }
 
-/*
 
-function cargar_unidadm_producto(){
+
+
+
+
+function cargar_unidad_medida(){
 	$.ajax({
 		url:'controller/controller_unidadm_producto.php',
 		type:'POST',
 		data:{}
-		//data:"boton=buscar2",
 	}).done(function(data){
 		var valores = JSON.parse(data);
 		//alert(valores.length);
@@ -108,9 +111,9 @@ function cargar_unidadm_producto(){
 			var cadena = "";
 			for(var i = 0; i < valores.length;i++){
 				//cadena += "<option>Seleccionar</option>";
-				cadena += "<option value="+valores[i][0]+">"+valores[i][1]+"</option>";
+				cadena += "<option value="+valores[i][1]+">"+valores[i][1]+"</option>";
 			}
-			$("#categoriap_datos").html(cadena);
+			$("#unidad_medida").html(cadena);
 		}
 		else{
 			alert("no hay datos en tipo de producto");
@@ -122,8 +125,6 @@ function cargar_unidadm_producto(){
 
 
 }
-
-*/
 
 
 

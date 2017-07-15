@@ -1,14 +1,12 @@
 <?php
 
-require ("../model/model_producto.php");
+require ("../model/model_present.php");
 
 date_default_timezone_set('America/Lima');
 $fecha_registro = date("Y-m-d");
 $id_usuariop = trim($_POST['txtusuario']);
 $npresentacion = trim($_POST['txtnpresentacion']);
-$npresentaciond = trim($_POST['txtnpresentaciond']);
-$estado_presentacion = '1';
-
+$estado_presentacion = trim($_POST['estado_present']);
 
 
 if(empty($id_usuariop) || empty($npresentacion)){
@@ -19,7 +17,7 @@ if(empty($id_usuariop) || empty($npresentacion)){
 	
 }else{
 
-	$inst = new Producto();
+	$inst = new Presentacion();
 	$consulta = $inst->registro_presentacion($id_usuariop,$npresentacion,$estado_presentacion,$fecha_registro);
 	echo $consulta;
 }

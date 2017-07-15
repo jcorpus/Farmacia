@@ -1,36 +1,37 @@
 
  $(document).ready(function(){
-    listar_almacenes('','1');
+    listar_productos('','1');
     $(".oculto").hide();
 
   });
 
 
-function buscar_almacen(){
-	var bus = $("#buscar_almacen").val();
-	listar_almacenes(bus,'1');
+function buscar_producto(){
+	var bus = $("#buscar_producto").val();
+	listar_productos(bus,'1');
 
 }
 
 
-function listar_almacenes(valor,pagina){
+function listar_productos(valor,pagina){
 	//valor = valor que el usuario escribe para mostrar los datos por apellido o nombre
 	var pagina = Number(pagina);
 	$.ajax({
-		url:'controller/controller_list_almacen.php',
+		url:'controller/controller_list_producto.php',
 		type: 'POST',
 		data:'valor='+valor+'&pagina='+pagina+'&boton=buscar',
 		beforeSend: function(){
 			//<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 			//alert("enviando");
-			$("#loading_almacen").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
+			$("#loading_producto").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
 			//$("#cargando").show();
 
 		},
     complete: function(){
-      $("#loading_almacen").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
+      $("#loading_producto").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
     },
 		success: function(resp){
+
 			if(resp.length>0){
 			var datos = resp.split("*"); //separamos el json de el numero de filas que hay en la TABLA
 			var valores = eval(datos[0]); //me trae solo los datos menos el numero de filas
@@ -41,10 +42,18 @@ function listar_almacenes(valor,pagina){
 			cadena += "<tr>";
 			cadena += "<th>#</th>";
 			cadena += "<th>Nombre</th>";
-			cadena += "<th>Direccion</th>";
-			cadena += "<th>Fecha de registro</th>";
-			cadena += "<th>Estado</th>";
-			cadena += "<th>Acción</th>";
+			cadena += "<th>Marca</th>";
+			cadena += "<th>tipo prod</th>";
+			cadena += "<th>categoria</th>";
+			cadena += "<th>unidad dm</th>";
+			cadena += "<th>regla snt</th>";
+			cadena += "<th>vencimiento</th>";
+			cadena += "<th>stock max</th>";
+			cadena += "<th>stock min</th>";
+			cadena += "<th>precio compr</th>";
+			cadena += "<th>precio vent</th>";
+			cadena += "<th>cantidad</th>";
+			cadena += "<th>Edit</th>";	
 			cadena += "</tr>";
 			cadena += "</thead>";
 			cadena += "<tbody>";
@@ -54,10 +63,18 @@ function listar_almacenes(valor,pagina){
 				cadena += "<tr>";
 				/*cadena += "<td>"+(i+1)+"</td>";*/
 				cadena += "<td>"+valores[i][0]+"</td>";
+				cadena += "<td>"+valores[i][1]+"</td>";
 				cadena += "<td>"+valores[i][2]+"</td>";
 				cadena += "<td>"+valores[i][3]+"</td>";
 				cadena += "<td>"+valores[i][4]+"</td>";
-				cadena += "<td>"+valores[i][5]+"</td>";
+				cadena += "<td>"+valores[i][8]+"</td>";
+				cadena += "<td>"+valores[i][9]+"</td>";
+				cadena += "<td>"+valores[i][10]+"</td>";
+				cadena += "<td>"+valores[i][11]+"</td>";
+				cadena += "<td>"+valores[i][12]+"</td>";
+				cadena += "<td>"+valores[i][13]+"</td>";
+				cadena += "<td>"+valores[i][14]+"</td>";
+				cadena += "<td>"+valores[i][15]+"</td>";
 				cadena += "<td><div class='btn-group'> <button type='button' class='btn btn-success ' data-toggle='dropdown' aria-expanded='false'>Acción <span class='glyphicon glyphicon-cog'></span></button> <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'> <span class='caret'></span></button> <ul class='dropdown-menu' role='menu'> <li><a href='#' data-toggle='modal' data-target='#myModal_modificara' onclick='mostrar_almacen("+'"'+datos_array+'"'+");'>Modificar</a></li> <li class='divider'></li> <li><a href='#' data-toggle='modal' data-target='#myModal_eliminar'  onclick='eliminar_almacen("+'"'+datos_array+'"'+");' >Eliminar</a></li> </ul> </div></td>";
 				cadena += "</tr>";
 
@@ -71,7 +88,7 @@ function listar_almacenes(valor,pagina){
 			//alert("total de datos"+totaldatos);
 			var numero_paginas = Math.ceil(totaldatos/5); //el Math.ceil acerca el resultado al próximo entero
 			//alert("total de paginas"+numero_paginas);
-			var buscar_almacen = $("#buscar_almacen").val();
+			var buscar_producto = $("#buscar_producto").val();
 
 
 			var paginar = "<ul class='pagination'>";
@@ -82,8 +99,8 @@ function listar_almacenes(valor,pagina){
 				//entidad html ›  equivale a = &rsaquo
 				//entidad html »  equivale a = &raquo
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+1+'"'+")'>&laquo;</a></li>";
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_productos("+'"'+buscar_producto+'","'+1+'"'+")'>&laquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_productos("+'"'+buscar_producto+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
 
 
 
@@ -113,7 +130,7 @@ function listar_almacenes(valor,pagina){
 					paginar +="<li class='active'><a href='javascript:void(0)'>"+i+"</a></li>";
 				}
 				else{
-					paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+i+'"'+")'>"+i+"</a></li>";
+					paginar += "<li><a href='javascript:void(0)' onclick='listar_productos("+'"'+buscar_producto+'","'+i+'"'+")'>"+i+"</a></li>";
 				}
 
 
@@ -121,9 +138,9 @@ function listar_almacenes(valor,pagina){
 
 			if(pagina < numero_paginas){
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_productos("+'"'+buscar_producto+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_productos("+'"'+buscar_producto+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
 
 			}
 			else{
@@ -132,7 +149,7 @@ function listar_almacenes(valor,pagina){
 			}
 
 			paginar += "</ul>";
-			$("#paginador_almacen").html(paginar);
+			$("#paginador_producto").html(paginar);
 
 			//http://codepen.io/Manoz/pen/pydxK
 

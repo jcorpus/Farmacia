@@ -12,11 +12,8 @@ function reg_lote(){
   //var emaill = document.getElementById("get_pass_user").value;
   //var formusuario = new FormData($("#formulario_categoria")[0]);
   var txtlote = $("#txtlote").val();
-  var txtdescripcionl = $("#txtloted").val();
+  var estado_lote = $("#txtestado_lote").val();
   var txtusuario = $("#usuarioa_id").val();
-  alert("datos: "+txtusuario+" - "+txtlote);
-  //    data: 'tipo_usuario='+tipo_usuario+'&dato=r_titpo_user',
-
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
 	$.ajax({
@@ -24,7 +21,7 @@ function reg_lote(){
 		type: 'POST',
     data: {
       txtlote:txtlote,
-      txtdescripcionl:txtdescripcionl,
+      estado_lote:estado_lote,
       txtusuario:txtusuario
     },
     cache:false,  //si el navegador debe almacenar en cache la pagina solicitada

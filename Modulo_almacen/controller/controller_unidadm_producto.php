@@ -6,13 +6,7 @@ echo json_encode($consulta);
 
 
 
-
-
-
-
-
-
-
-
-
  ?>
+
+
+

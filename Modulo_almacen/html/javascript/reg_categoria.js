@@ -14,18 +14,22 @@ function reg_categoria(){
   var txtcategoria = $("#txtcategoria").val();
   var txtdescripcion = $("#txtdescripcion").val();
   var txtusuario = $("#usuarioa_id").val();
-  alert("datos: "+txtcategoria+" - "+txtdescripcion);
+  var txtestadocat = $("#txtestado_categoria").val();
+  alert("datos: "+txtestadocat+" - "+txtdescripcion);
   //    data: 'tipo_usuario='+tipo_usuario+'&dato=r_titpo_user',
+  var opcion = "registrar";
 
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
 	$.ajax({
-		url:'controller/controller_reg_categoria.php',
+		url:'controller/controller_categoria.php',
 		type: 'POST',
     data: {
       txtcategoria:txtcategoria,
       txtdescripcion:txtdescripcion,
-      txtusuario:txtusuario
+      txtusuario:txtusuario,
+      txtestadocat:txtestadocat,
+      opcion:opcion
     },
     cache:false,  //si el navegador debe almacenar en cache la pagina solicitada
     //contentType: false, //"application / x-www-form-urlencoded"

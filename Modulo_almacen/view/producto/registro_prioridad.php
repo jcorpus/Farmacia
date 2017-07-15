@@ -1,11 +1,11 @@
 
 <section class="content-header cabecera">
       <h1>
-        Registro Categoria de producto
+        Registro prioridad
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Producto</a></li>
-        <li class="active">Categoria</li>
+        <li class="active">prioridad</li>
       </ol>
 
 </section>
@@ -18,71 +18,66 @@
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Datos de Categoria</h3>
+              <h3 class="box-title">Datos</h3>
             </div>
 
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form class="form-horizontal" id="formulario_categoria">
-              <div class="box-body">
-                <!--Mensaje de registro-->
-                <div class="" id="msj_categoria">
-                </div>
-              <!--Mensaje de registro-->  
+              <form class="form-horizontal" id="formulario_marca">
+                  <div class="box-body">
+                    <!--Mensaje de registro-->
+                    <div class="" id="msj_marca">
+                    </div>
+                    <!--Mensaje de registro-->
                     <div class="form-group">
-                      <label  class="col-sm-1 control-label">Nombre Cetegoria.</label>
+                      <label  class="col-sm-2 control-label">Nombre Prioridad.</label>
                       <div class="col-sm-2">
-                        <input type="text" name="txtcategoria" id="txtcategoria" class="form-control">
+                        <input type="text" name="txtmmarca" id="txtmmarca" class="form-control">
                       </div>
                       <label  class="col-sm-1 control-label">Estado</label>
                       <div class="col-sm-2">
-                        <select name="txtestado_categoria" class="form-control"  id="txtestado_categoria">
+                        <select name="txtestado_marca" class="form-control"  id="txtestado_marca">
                           <option value="1">Activo</option>
                           <option value="0">Inactivo</option>
                         </select>
                       </div>
-                      <button type="button" onclick="reg_categoria()" class="btn btn-success "><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
+                      <button type="button" onclick="reg_marca()" class="btn btn-success "><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
                     </div>
-              </div>
-            </form>
-            <div class="box-body">
+                  </div>
+              </form>
+              <div class="box-body">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Lista de Categorias</h3>
+                  <h3 class="box-title">Lista de </h3>
                 </div>
 
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Buscar</label>
                       <div class="col-sm-4">
-                        <input type="text" name="buscar_categoria"  class="form-control" id="buscar_categoria" placeholder="buscar por nombre">
+                        <input type="text" name="buscar_marca"  class="form-control" id="buscar_marca" placeholder="buscar por nombre">
                       </div>
                       <div class="col-sm-2">
-                        <button type="button" onclick="buscar_categoria();" class="btn btn-block btn-primary btn-sm">Buscar&ensp;<i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+                        <button type="button" onclick="buscar_marca();" class="btn btn-block btn-primary btn-sm">Buscar&ensp;<i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
                       </div>
                   </div>
                   <br>
                   <br>
                   <div class="box-body">
                     <div id="listar" class="icon-loading">
-                      <i id="loading_categoria" style="margin:auto;display:block; margin-top:60px;"></i>
+                      <i id="loading_prioridad" style="margin:auto;display:block; margin-top:60px;"></i>
                       <div id="nodatos"></div>
                     </div>
-                      <p id="paginador_categoria" class="mi_paginador"></p>
+                      <p id="paginador_prioridad" class="mi_paginador"></p>
                   </div>
               </div>
           </div>
-          <!-- /.box -->
-          <!-- /.box -->
         </div>
 
     </div><!--row-->
 
 </section>
-    <!-- /.content -->
-
+   
 
 
 <!--MODAL MODIFICAR-->
-  <div class="modal fade " id="myModal_modificarmarca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade " id="myModal_modificarm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -95,7 +90,7 @@
                 <div class="col-md-12">
                   <div class="box box-info">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Datos de Marca</h3>
+                      <h3 class="box-title">Datos</h3>
                     </div>
                         <form class="form-horizontal" id="formulario_marca2">
                           <div class="box-body">
@@ -167,9 +162,10 @@
 
 
 
-<script src="html/javascript/list_categoria.js"></script>
-<script src="html/javascript/reg_categoria.js"></script>
 
+
+<script src="html/javascript/list_prioridad.js"></script>
+<script src="html/javascript/reg_prioridad.js"></script>
 
 <?php 
 

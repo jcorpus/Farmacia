@@ -1,34 +1,35 @@
 
  $(document).ready(function(){
-    listar_almacenes('','1');
+    listar_presentacion('','1');
     $(".oculto").hide();
+
 
   });
 
 
-function buscar_almacen(){
-	var bus = $("#buscar_almacen").val();
-	listar_almacenes(bus,'1');
+function buscar_present(){
+	var bus = $("#buscar_presentacion").val();
+	listar_presentacion(bus,'1');
 
 }
 
 
-function listar_almacenes(valor,pagina){
+function listar_presentacion(valor,pagina){
 	//valor = valor que el usuario escribe para mostrar los datos por apellido o nombre
 	var pagina = Number(pagina);
 	$.ajax({
-		url:'controller/controller_list_almacen.php',
+		url:'controller/controller_list_present.php',
 		type: 'POST',
 		data:'valor='+valor+'&pagina='+pagina+'&boton=buscar',
 		beforeSend: function(){
 			//<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 			//alert("enviando");
-			$("#loading_almacen").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
+			$("#loading_present").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
 			//$("#cargando").show();
 
 		},
     complete: function(){
-      $("#loading_almacen").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
+      $("#loading_present").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
     },
 		success: function(resp){
 			if(resp.length>0){
@@ -41,7 +42,6 @@ function listar_almacenes(valor,pagina){
 			cadena += "<tr>";
 			cadena += "<th>#</th>";
 			cadena += "<th>Nombre</th>";
-			cadena += "<th>Direccion</th>";
 			cadena += "<th>Fecha de registro</th>";
 			cadena += "<th>Estado</th>";
 			cadena += "<th>Acción</th>";
@@ -56,9 +56,8 @@ function listar_almacenes(valor,pagina){
 				cadena += "<td>"+valores[i][0]+"</td>";
 				cadena += "<td>"+valores[i][2]+"</td>";
 				cadena += "<td>"+valores[i][3]+"</td>";
-				cadena += "<td>"+valores[i][4]+"</td>";
 				cadena += "<td>"+valores[i][5]+"</td>";
-				cadena += "<td><div class='btn-group'> <button type='button' class='btn btn-success ' data-toggle='dropdown' aria-expanded='false'>Acción <span class='glyphicon glyphicon-cog'></span></button> <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'> <span class='caret'></span></button> <ul class='dropdown-menu' role='menu'> <li><a href='#' data-toggle='modal' data-target='#myModal_modificara' onclick='mostrar_almacen("+'"'+datos_array+'"'+");'>Modificar</a></li> <li class='divider'></li> <li><a href='#' data-toggle='modal' data-target='#myModal_eliminar'  onclick='eliminar_almacen("+'"'+datos_array+'"'+");' >Eliminar</a></li> </ul> </div></td>";
+				cadena += "<td><div class='btn-group'> <button type='button' class='btn btn-success ' data-toggle='dropdown' aria-expanded='false'>Acción <span class='glyphicon glyphicon-cog'></span></button> <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'> <span class='caret'></span></button> <ul class='dropdown-menu' role='menu'> <li><a href='#' data-toggle='modal' data-target='#modal_mod_present' onclick='mostrar_presentacion("+'"'+datos_array+'"'+");'>Modificar</a></li> <li class='divider'></li> <li><a href='#' data-toggle='modal' data-target='#myModal_eliminar'  onclick='eliminar_marca("+'"'+datos_array+'"'+");' >Eliminar</a></li> </ul> </div></td>";
 				cadena += "</tr>";
 
 			}
@@ -71,7 +70,7 @@ function listar_almacenes(valor,pagina){
 			//alert("total de datos"+totaldatos);
 			var numero_paginas = Math.ceil(totaldatos/5); //el Math.ceil acerca el resultado al próximo entero
 			//alert("total de paginas"+numero_paginas);
-			var buscar_almacen = $("#buscar_almacen").val();
+			var buscar_present = $("#buscar_presentacion").val();
 
 
 			var paginar = "<ul class='pagination'>";
@@ -82,8 +81,8 @@ function listar_almacenes(valor,pagina){
 				//entidad html ›  equivale a = &rsaquo
 				//entidad html »  equivale a = &raquo
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+1+'"'+")'>&laquo;</a></li>";
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_presentacion("+'"'+buscar_present+'","'+1+'"'+")'>&laquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_presentacion("+'"'+buscar_present+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
 
 
 
@@ -113,7 +112,7 @@ function listar_almacenes(valor,pagina){
 					paginar +="<li class='active'><a href='javascript:void(0)'>"+i+"</a></li>";
 				}
 				else{
-					paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+i+'"'+")'>"+i+"</a></li>";
+					paginar += "<li><a href='javascript:void(0)' onclick='listar_presentacion("+'"'+buscar_present+'","'+i+'"'+")'>"+i+"</a></li>";
 				}
 
 
@@ -121,9 +120,9 @@ function listar_almacenes(valor,pagina){
 
 			if(pagina < numero_paginas){
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_presentacion("+'"'+buscar_present+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_presentacion("+'"'+buscar_present+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
 
 			}
 			else{
@@ -132,7 +131,7 @@ function listar_almacenes(valor,pagina){
 			}
 
 			paginar += "</ul>";
-			$("#paginador_almacen").html(paginar);
+			$("#paginador_present").html(paginar);
 
 			//http://codepen.io/Manoz/pen/pydxK
 
@@ -161,65 +160,46 @@ function listar_almacenes(valor,pagina){
 }
 
 
-function mostrar_almacen(datos){
+
+
+function mostrar_presentacion(datos){
 	var valores=datos.split("*");
 	//alert(d.length);
-	$("#id_almacen2").val(valores[0]);
-	$("#txtalmacen2").val(valores[1]);
-	$("#txtdireccionalm2").val(valores[2]);
-	$("#nestado_almacen2").val(valores[4]);
-
-
-if (valores[4] == 1) {
-		$("#nestado_almacen2").val('Activoo');
+	$("#id_presentacion2").val(valores[0]);
+	$("#txtpresent2").val(valores[1]);
+	console.log("el estado es: "+valores[3]);
+	if (valores[3] == 1) {
+		$("#nestadopresent2").val('Activoo');
 		
 		document.getElementById('activo').checked = true;
 		//document.getElementById('inactivo').checked = false;
 	}else{
-		$("#nestado_almacen2").val('Inactivoo');
+		$("#nestadopresent2").val('Inactivoo');
 		document.getElementById('inactivo').checked = true;
 		//document.getElementById('activo').checked = false;
 		
 	}
-
-
-
 }
 
-
-//****************IMAGEN PREVIEW**************/
- $('.file-input').on('change', function() {
-    previewImage(this);
-});
-
-
-
 /********************************************************/
-function mod_almacen(){
-
+function mod_present(){
   if (true) {
-
-  var txtalmacen2 = $("#txtalmacen2").val();
-  var id_almacen2 = $("#id_almacen2").val();
+  var txtpresent2 = $("#txtpresent2").val();
+  var id_presentacion = $("#id_presentacion2").val();
   var txtusuario = $("#usuarioa_id").val();
-  var txtdireccionalm2 = $("#txtdireccionalm2").val();
-  var txtestadom2 = $("input[name='estado_alm']:checked"). val();
-
-
-
-  var opcion = "modificar_alm";
-  alert("estado: "+txtestadom2+txtdireccionalm2+txtusuario+id_almacen2,txtalmacen2);
+  var txtestadom2 = $("input[name='estadoo']:checked"). val();
+  var opcion = "modificar";
+  alert("estado: "+txtestadom2);
 
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
   $.ajax({
-    url:'controller/controller_mod_almacen.php',
+    url:'controller/controller_mod_present.php',
     type: 'POST',
     data: {
-      txtalmacen2:txtalmacen2,
-      id_almacen2:id_almacen2,
+      txtpresent2:txtpresent2,
+      id_presentacion:id_presentacion,
       txtusuario:txtusuario,
-      txtdireccionalm2:txtdireccionalm2,
       txtestadom2:txtestadom2,
       opcion:opcion
     },
@@ -231,7 +211,7 @@ function mod_almacen(){
     msj_cat += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
     msj_cat += ' <p> Enviando .....</p>'
     msj_cat += '</div>';
-    document.getElementById('msj_mod_almacen').innerHTML = msj_cat;
+    document.getElementById('msj_mod_pre').innerHTML = msj_cat;
 
     },
     complete: function(){
@@ -240,8 +220,8 @@ function mod_almacen(){
     },
     success: function(data){
 
-    document.getElementById('msj_mod_almacen').innerHTML = data;
-
+    document.getElementById('msj_mod_pre').innerHTML = data;
+    listar_presentacion('','1');
     /*
 
       if(respuesta.length>0){
@@ -271,7 +251,15 @@ function mod_almacen(){
   msjpass += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
   msjpass += ' <i class="icon fa fa-times"></i>&nbsp; Faltan Datos'
   msjpass += '</div>';
-  document.getElementById('msj_mod_almacen').innerHTML = msj_cat;
+  document.getElementById('msj_mod_pre').innerHTML = msj_cat;
 }
 
 }
+
+
+
+
+
+
+
+

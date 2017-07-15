@@ -6,9 +6,7 @@ date_default_timezone_set('America/Lima');
 $fecha_registro = date("Y-m-d");
 $id_usuariop = trim($_POST['txtusuario']);
 $nlote = trim($_POST['txtlote']);
-$nloted = trim($_POST['txtdescripcionl']);
-$estado_lote = '1';
-
+$estado_lote = trim($_POST['estado_lote']);
 
 
 if(empty($id_usuariop) || empty($nlote)){

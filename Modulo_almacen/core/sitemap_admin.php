@@ -24,9 +24,19 @@ else if($_GET['p'] == 'reg_marca'){
 	$contenido = 'view/producto/registro_marca.php';
 	
 }
+else if($_GET['p'] == 'reg_prioridad'){
+	$titulo = 'Registro de Marca';
+	$contenido = 'view/producto/registro_prioridad.php';
+	
+}
 else if($_GET['p'] == 'reg_lote'){
 	$titulo = 'Registro de Lote';
 	$contenido = 'view/producto/registro_lote.php';
+	
+}
+else if($_GET['p'] == 'control_ingreso'){
+	$titulo = 'Control de Ingreso';
+	$contenido = 'view/notas/control_ingreso.php';
 	
 }
 else if($_GET['p'] == 'reg_kardex'){
@@ -67,9 +77,18 @@ else if ($_GET['p'] == 'reg_producto') {
 	$titulo = 'Registro de Productos';
 	$contenido = 'view/producto/registro_producto.php';
 }
+else if ($_GET['p'] == 'list_producto') {
+	$titulo = 'Registro de Productos';
+	$contenido = 'view/producto/listar_producto.php';
+}
 else if($_GET['p'] =='reg_nota_ingreso'){
 	$titulo = 'Nota de ingreso';
 	$contenido = 'view/notas/reg_nota_ingreso.php';
+
+}
+else if($_GET['p'] =='reg_nota_salida'){
+	$titulo = 'Nota de Salida';
+	$contenido = 'view/notas/reg_nota_salida.php';
 
 }
 else if($_GET['p'] =='salir'){

@@ -129,13 +129,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?p=reg_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar</a></li>
+            <li><a href="?p=reg_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar Prod.</a></li>
+            <li><a href="?p=list_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Listar Prod.</a></li>
             <li><a href="?p=reg_categoria"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Categoria</a></li>
             <li><a href="?p=reg_marca"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Marca</a></li>
             <li><a href="?p=reg_tipo_prod"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Tipo de Producto</a></li>
             <li><a href="?p=reg_lote"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Lote de Producto</a></li>
             <li><a href="?p=reg_presentacion"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Presentacion</a></li>
-            <li><a href="?p=list_producto"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Listar Productos</a></li>
+            <li><a href="?p=reg_prioridad"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Listar Prioridad</a></li>
             
           </ul>
         </li>
@@ -148,6 +149,7 @@
           <ul class="treeview-menu">
             <li><a href="?p=reg_nota_ingreso"><i class="fa fa-sign-in" aria-hidden="true"></i>&ensp;Nota de Ingreso</a></li>
             <li><a href="?p=reg_nota_salida"><i class="fa fa-external-link-square" aria-hidden="true"></i>&ensp;Nota de Salida</a></li>
+            <li><a href="?p=control_ingreso"><i class="fa fa-external-link-square" aria-hidden="true"></i>&ensp;Control de Ingreso</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -179,6 +181,11 @@
           <ul class="treeview-menu">
             <li><a href="?p=reportes"><i class="fa fa-file-text-o" aria-hidden="true"></i>&ensp;Reportes PDF</a></li>
             <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Gráficos</a></li>
+            <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Producto</a></li>
+            <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Almacen</a></li>
+            <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Ingreso</a></li>
+            <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Salidas</a></li>
+            <li><a href="?p=graficos"><i class="fa fa-bar-chart" aria-hidden="true"></i>&ensp;Inventario</a></li>
           </ul>
         </li>
         <li class="treeview">

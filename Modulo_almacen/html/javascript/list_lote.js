@@ -1,34 +1,34 @@
 
  $(document).ready(function(){
-    listar_almacenes('','1');
+    listar_lotes('','1');
     $(".oculto").hide();
 
   });
 
 
-function buscar_almacen(){
-	var bus = $("#buscar_almacen").val();
-	listar_almacenes(bus,'1');
+function buscar_lote(){
+	var bus = $("#buscar_lote").val();
+	listar_lotes(bus,'1');
 
 }
 
 
-function listar_almacenes(valor,pagina){
+function listar_lotes(valor,pagina){
 	//valor = valor que el usuario escribe para mostrar los datos por apellido o nombre
 	var pagina = Number(pagina);
 	$.ajax({
-		url:'controller/controller_list_almacen.php',
+		url:'controller/controller_list_lote.php',
 		type: 'POST',
 		data:'valor='+valor+'&pagina='+pagina+'&boton=buscar',
 		beforeSend: function(){
 			//<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 			//alert("enviando");
-			$("#loading_almacen").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
+			$("#loading_lote").addClass("fa fa-refresh fa-spin fa-3x fa-fw");
 			//$("#cargando").show();
 
 		},
     complete: function(){
-      $("#loading_almacen").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
+      $("#loading_lote").removeClass("fa fa-refresh fa-spin fa-3x fa-fw");
     },
 		success: function(resp){
 			if(resp.length>0){
@@ -41,7 +41,6 @@ function listar_almacenes(valor,pagina){
 			cadena += "<tr>";
 			cadena += "<th>#</th>";
 			cadena += "<th>Nombre</th>";
-			cadena += "<th>Direccion</th>";
 			cadena += "<th>Fecha de registro</th>";
 			cadena += "<th>Estado</th>";
 			cadena += "<th>Acción</th>";
@@ -56,7 +55,6 @@ function listar_almacenes(valor,pagina){
 				cadena += "<td>"+valores[i][0]+"</td>";
 				cadena += "<td>"+valores[i][2]+"</td>";
 				cadena += "<td>"+valores[i][3]+"</td>";
-				cadena += "<td>"+valores[i][4]+"</td>";
 				cadena += "<td>"+valores[i][5]+"</td>";
 				cadena += "<td><div class='btn-group'> <button type='button' class='btn btn-success ' data-toggle='dropdown' aria-expanded='false'>Acción <span class='glyphicon glyphicon-cog'></span></button> <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'> <span class='caret'></span></button> <ul class='dropdown-menu' role='menu'> <li><a href='#' data-toggle='modal' data-target='#myModal_modificara' onclick='mostrar_almacen("+'"'+datos_array+'"'+");'>Modificar</a></li> <li class='divider'></li> <li><a href='#' data-toggle='modal' data-target='#myModal_eliminar'  onclick='eliminar_almacen("+'"'+datos_array+'"'+");' >Eliminar</a></li> </ul> </div></td>";
 				cadena += "</tr>";
@@ -71,7 +69,7 @@ function listar_almacenes(valor,pagina){
 			//alert("total de datos"+totaldatos);
 			var numero_paginas = Math.ceil(totaldatos/5); //el Math.ceil acerca el resultado al próximo entero
 			//alert("total de paginas"+numero_paginas);
-			var buscar_almacen = $("#buscar_almacen").val();
+			var buscar_lote = $("#buscar_lote").val();
 
 
 			var paginar = "<ul class='pagination'>";
@@ -82,8 +80,8 @@ function listar_almacenes(valor,pagina){
 				//entidad html ›  equivale a = &rsaquo
 				//entidad html »  equivale a = &raquo
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+1+'"'+")'>&laquo;</a></li>";
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_lotes("+'"'+buscar_lote+'","'+1+'"'+")'>&laquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_lotes("+'"'+buscar_lote+'","'+(pagina-1)+'"'+")'>Anterior</a></li>";
 
 
 
@@ -113,7 +111,7 @@ function listar_almacenes(valor,pagina){
 					paginar +="<li class='active'><a href='javascript:void(0)'>"+i+"</a></li>";
 				}
 				else{
-					paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+i+'"'+")'>"+i+"</a></li>";
+					paginar += "<li><a href='javascript:void(0)' onclick='listar_lotes("+'"'+buscar_lote+'","'+i+'"'+")'>"+i+"</a></li>";
 				}
 
 
@@ -121,9 +119,9 @@ function listar_almacenes(valor,pagina){
 
 			if(pagina < numero_paginas){
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_lotes("+'"'+buscar_lote+'","'+(pagina+1)+'"'+")'>Siguiente</a></li>";
 
-				paginar += "<li><a href='javascript:void(0)' onclick='listar_almacenes("+'"'+buscar_almacen+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
+				paginar += "<li><a href='javascript:void(0)' onclick='listar_lotes("+'"'+buscar_lote+'","'+numero_paginas+'"'+")'>&raquo;</a></li>";
 
 			}
 			else{
@@ -132,7 +130,7 @@ function listar_almacenes(valor,pagina){
 			}
 
 			paginar += "</ul>";
-			$("#paginador_almacen").html(paginar);
+			$("#paginador_lote").html(paginar);
 
 			//http://codepen.io/Manoz/pen/pydxK
 

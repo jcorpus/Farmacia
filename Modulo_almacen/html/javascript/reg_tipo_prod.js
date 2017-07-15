@@ -3,6 +3,13 @@ function __(id){
   return document.getElementById(id);
 }
 
+function runtipo_prod(e){
+  if (e.keyCode == 13) {
+    reg_tipo_pro();
+    alert("boton enter here");
+  }
+}
+
 
 /********************************************************/
 function reg_tipo_pro(){
@@ -11,11 +18,12 @@ function reg_tipo_pro(){
 
   //var emaill = document.getElementById("get_pass_user").value;
   //var formusuario = new FormData($("#formulario_categoria")[0]);
-  var tipopro_nom = $("#txttipopro").val();
-  var tipopro_des = $("#txttipoprod").val();
+
   var txtusuario = $("#usuarioa_id").val();
-  alert("datos: "+tipopro_nom+" - "+tipopro_des);
-  //    data: 'tipo_usuario='+tipo_usuario+'&dato=r_titpo_user',
+  var txtestado_tipo = $("#txtestado_tipo").val();
+  var opcion = "registrar"
+  var tipopro_nom = $("#txttipopro").val();
+  //alert("datos: "+tipopro_nom+" - "+txtestado_tipo);
 
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
@@ -24,8 +32,9 @@ function reg_tipo_pro(){
 		type: 'POST',
     data: {
       tipopro_nom:tipopro_nom,
-      tipopro_des:tipopro_des,
-      txtusuario:txtusuario
+      txtusuario:txtusuario,
+      txtestado_tipo:txtestado_tipo,
+      opcion:opcion
     },
     cache:false,  //si el navegador debe almacenar en cache la pagina solicitada
     //contentType: false, //"application / x-www-form-urlencoded"
@@ -45,6 +54,7 @@ function reg_tipo_pro(){
 		success: function(data){
 
     document.getElementById('msj_tipo_pro').innerHTML = data;
+    listar_tipoprod('','1');
 
     /*
 
