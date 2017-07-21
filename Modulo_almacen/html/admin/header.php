@@ -93,16 +93,6 @@
         <!-- Optionally, you can add icons to the links -->
         
         <li class="treeview">
-          <a href="#"><i class="fa fa-male fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Persona</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="?p=reg_persona"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Registro</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
           <a href="#"><i class="fa fa-male fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Usuario</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -130,7 +120,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="?p=reg_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar Prod.</a></li>
-            <li><a href="?p=list_producto"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Listar Prod.</a></li>
+            <li><a href="?p=list_producto"><i class="fa fa-list-alt" aria-hidden="true"></i>&ensp;Listar Prod.</a></li>
             <li><a href="?p=reg_categoria"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Categoria</a></li>
             <li><a href="?p=reg_marca"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Marca</a></li>
             <li><a href="?p=reg_tipo_prod"><i class="fa fa-list-ul" aria-hidden="true"></i>&ensp;Tipo de Producto</a></li>
@@ -141,7 +131,19 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Notas</span>
+          <a href="#"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Nota de Ingreso</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?p=reg_nota_ingreso"><i class="fa fa-sign-in" aria-hidden="true"></i>&ensp;Nota de Ingreso</a></li>
+            <li><a href="?p=reg_nota_salida"><i class="fa fa-external-link-square" aria-hidden="true"></i>&ensp;Nota de Salida</a></li>
+            <li><a href="?p=control_ingreso"><i class="fa fa-external-link-square" aria-hidden="true"></i>&ensp;Control de Ingreso</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-external-link fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Nota de Salida</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -160,6 +162,19 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Listar</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-archive fa-lg" aria-hidden="true"></i>&ensp;&ensp; <span>Inventario</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar Inv</a></li>
+            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Tipo de Invent.</a></li>
+            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Apertura de Inventario</a></li>
+            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Cierre de Inventario</a></li>
           </ul>
         </li>
         <li class="treeview">

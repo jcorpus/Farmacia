@@ -1,7 +1,7 @@
 
 <section class="content-header cabecera">
       <h1>
-        Registro prioridad
+        Registro prioridad &ensp;<i class="fa fa-check-square-o" aria-hidden="true"></i>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Producto</a></li>
@@ -21,25 +21,25 @@
               <h3 class="box-title">Datos</h3>
             </div>
 
-              <form class="form-horizontal" id="formulario_marca">
+              <form class="form-horizontal" id="formulario_prioridad">
                   <div class="box-body">
                     <!--Mensaje de registro-->
-                    <div class="" id="msj_marca">
+                    <div class="" id="msj_prioridad">
                     </div>
                     <!--Mensaje de registro-->
                     <div class="form-group">
                       <label  class="col-sm-2 control-label">Nombre Prioridad.</label>
                       <div class="col-sm-2">
-                        <input type="text" name="txtmmarca" id="txtmmarca" class="form-control">
+                        <input type="text" name="txtprioridad" id="txtprioridad" class="form-control">
                       </div>
                       <label  class="col-sm-1 control-label">Estado</label>
                       <div class="col-sm-2">
-                        <select name="txtestado_marca" class="form-control"  id="txtestado_marca">
+                        <select name="txtestado_p" class="form-control"  id="txtestado_p">
                           <option value="1">Activo</option>
                           <option value="0">Inactivo</option>
                         </select>
                       </div>
-                      <button type="button" onclick="reg_marca()" class="btn btn-success "><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
+                      <button type="button" onclick="reg_prioridad()" class="btn btn-success "><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
                     </div>
                   </div>
               </form>

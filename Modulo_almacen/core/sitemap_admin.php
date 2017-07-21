@@ -25,7 +25,7 @@ else if($_GET['p'] == 'reg_marca'){
 	
 }
 else if($_GET['p'] == 'reg_prioridad'){
-	$titulo = 'Registro de Marca';
+	$titulo = 'Registro de Prioridad';
 	$contenido = 'view/producto/registro_prioridad.php';
 	
 }
@@ -88,6 +88,27 @@ else if($_GET['p'] =='reg_nota_ingreso'){
 }
 else if($_GET['p'] =='reg_nota_salida'){
 	$titulo = 'Nota de Salida';
+	$contenido = 'view/notas/reg_nota_salida.php';
+
+}
+/************ INVENTARIO ***********/
+else if($_GET['p'] =='reg_inventario'){
+	$titulo = 'Registro de Inventario';
+	$contenido = 'view/notas/reg_nota_salida.php';
+
+}
+else if($_GET['p'] =='reg_tipo_inventario'){
+	$titulo = 'Registro de Tipo de Inventario';
+	$contenido = 'view/notas/reg_nota_salida.php';
+
+}
+else if($_GET['p'] =='apertura_inventario'){
+	$titulo = 'Apertura de Inventario';
+	$contenido = 'view/notas/reg_nota_salida.php';
+
+}
+else if($_GET['p'] =='cierre_inventario'){
+	$titulo = 'Cierre de Inventario';
 	$contenido = 'view/notas/reg_nota_salida.php';
 
 }

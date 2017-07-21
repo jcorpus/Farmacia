@@ -61,28 +61,12 @@
                 </div>
 
                 <div class="form-group">
-                  <!-- <label  class="col-sm-2 control-label">Fraccion</label> -->
+                <label  class="col-sm-2 control-label">Estado</label>
                   <div class="col-sm-4">
-                    <div class="input-group">
-                        <span class="input-group-addon">Fraccion</span>
-                        <input value="" required="required" maxlength="45" type="text" class="form-control" id="txtfraccion" name="txtfraccion">
-                    </div>
-                  </div>
-                  <!-- <label  class="col-sm-2 control-label">Presentacion</label> -->
-                  <div class="col-sm-5">
-                    <div class="input-group">
-                        <span class="input-group-addon">Presentacion</span>
-                        <input value="" disabled="" type="text" class="form-control" id="npresentacion2" name="npresentacion2">
-                    </div>
-                    <input  type="text" hidden="" id="id_presentacion" name="id_presentacion">
-                  </div>
-                  <button type="button" name="buscar" id="buscar" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_presentacion">Buscar <span class="glyphicon glyphicon-search"></span></button>
-                  
-                </div>
-                <div class="form-group">
-                <label  class="col-sm-2 control-label">Concentracion</label>
-                  <div class="col-sm-4">
-                    <input type="text" name="txtconcentracion" class="form-control validacion"  value="" id="txtconcentracion" placeholder="Concentracion" maxlength="50">
+                    <select name="estado_producto" class="form-control" id="estado_producto">
+                      <option value="1">Activo</option>
+                      <option value="0">Inactivo</option>
+                    </select>
                   </div>
                   <label  class="col-sm-2 control-label">Cod. Lote</label>
                   <div class="col-sm-2">
@@ -121,7 +105,7 @@
                 <div class="form-group">
                   <label  class="col-sm-2 control-label">Stock Min.</label>
                     <div class="col-sm-4">
-                      <input type="text" name="txtstockmin" id="txtstockmin" class="form-control">
+                      <input type="text" name="txtstockmin" id="txtstockmin" class="form-control min">
                     </div>
                     <label  class="col-sm-2 control-label">Precio comp.</label>
                     <div class="col-sm-4">
@@ -131,8 +115,10 @@
                 <div class="form-group">
                   <label  class="col-sm-2 control-label">Stock Max.</label>
                     <div class="col-sm-4">
-                      <input type="text" name="txtstockmax" id="txtstockmax" class="form-control">
+                      <input type="text" name="txtstockmax" id="txtstockmax" class="form-control max cant">
+                      <small class="mensaje">Debe ser Meyor al stock min</small>
                     </div>
+                      
                     <label  class="col-sm-2 control-label">Precio vent.</label>
                     <div class="col-sm-4">
                      <input type="text" name="txtpreciovent" id="txtpreciovent" class="form-control">
@@ -144,15 +130,58 @@
                     <div class="col-sm-4">
                       <input type="text" name="txtcantidadprod" id="txtcantidadprod" class="form-control">
                     </div>
-                    <label  class="col-sm-2 control-label">Estado</label>
+                  <label  class="col-sm-2 control-label">Almacen</label>
                   <div class="col-sm-4">
-                    <select name="estado_producto" class="form-control" id="estado_producto">
-                      <option value="1">Activo</option>
-                      <option value="0">Inactivo</option>
+                    <select class="form-control" name="" id="">
+                      <option value="">Almacen 1</option>
+                      <option value="">Almance 2</option>
                     </select>
                   </div>
-                    
                 </div>
+                <div class="separador" style="border:1px solid #bebebe; padding:15px;" >
+                <div class="form-group">
+                  <!-- <label  class="col-sm-2 control-label">Fraccion</label> -->
+                  <div class="col-sm-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Fraccion</span>
+                        <input value="" placeholder="fraccion" required="required" maxlength="45" type="text" class="form-control" id="txtfraccion" name="txtfraccion">
+                    </div>
+                  </div>
+                  <!-- <label  class="col-sm-2 control-label">Presentacion</label> -->
+                  <div class="col-sm-5">
+                    <div class="input-group">
+                        <span class="input-group-addon">Presentacion</span>
+                        <input value="" disabled="" type="text" class="form-control" id="npresentacion2" name="npresentacion2">
+                    </div>
+                    <input  type="text" hidden="" id="id_presentacion" name="id_presentacion">
+                  </div>
+                  <button type="button" name="buscar" id="buscar" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_presentacion">Buscar <span class="glyphicon glyphicon-search"></span></button>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">Concentracion</span>
+                        <input type="text" name="txtconcentracion" class="form-control validacion"  value="" id="txtconcentracion" placeholder="Concentracion" maxlength="50">
+                    </div>
+                  </div>
+                  <button type="button" name="buscar" onclick="agregar_present()" id="buscar" class="btn btn-success btn-sm">Agregar &nbsp;&nbsp;<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></button>
+                </div>
+
+                </div>
+                <br>
+                <table class='table table-bordered table-hover table-striped'>
+                  <thead>
+                  <tr class='success'>
+                    <th>Presentación</th>
+                    <th>Concentración</th>
+                    <th>Fracción</th>
+                  </tr>
+                  </thead>
+                  <tbody class="tablapen">
+                    
+                  </tbody>
+                </table>
+
 
               </div>
               <!-- /.box-body -->
@@ -244,7 +273,14 @@
 
 
 
-
+<style>
+  .mensaje{
+    display: none;
+  }
+  .mensaje2{
+      color: #ff3333;  
+}
+</style>
 
 
 <script src="html/javascript/reg_producto.js"></script>
@@ -255,20 +291,38 @@
     previewImage(this);
 });
 
+$( ".cant" ).on( "keyup", function() {
+  var smin = $(".min").val();
+  var smax = $(".max").val();
+  //convirtiendo a entero
+  smin = parseInt(smin);
+  smax = parseInt(smax);
+  
+  if(smin> smax){
+    //alert("el estock maximo debe ser mayor al minimo");
+    $("small").removeClass("mensaje").addClass("mensaje2");
+  }
+  else{
+    $("small").addClass("mensaje");
+  }
+
+
+});
+
+
+
+
+
+function agregar_present(){
+
+var present = $("#npresentacion2").val();
+var concen = $("#txtconcentracion").val();
+var fracci = $("#txtfraccion").val();
+   $(".tablapen").append('<tr><td>'+present+'</td><td>'+concen+'</td><td>'+fracci+'</tr>');
+}
 
 
 
 
 </script>
-<?php 
 
-/*
-session_name('misesion');
-session_register('contador');
-echo '<a href="'.$PHP_SELF.'?'.SID.'">Contador vale: '.++$_SESSION['contador'].'</a><br>';
-echo 'Ahora el nombre es '.session_name().' y la sesión '.$misesion.'<br>';
-
-*/
-
-
- ?>

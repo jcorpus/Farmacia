@@ -163,6 +163,52 @@ class Producto {
   }
 
 
+
+
+  function registro_prioridad($id_usuariop,$fecha_registro,$nombre_prio,$estado_prio){
+    $consulta = "INSERT INTO alm_prioridad(usu_id,pri_des,pri_freg,pri_est) VALUES('$id_usuariop','$nombre_prio','$fecha_registro','$estado_prio')";
+
+    $verificar = $this->db->query("SELECT alm_prioridad.pri_des FROM alm_prioridad WHERE alm_prioridad.pri_des = '$nombre_prio'");
+
+    if($this->db->rows($verificar) == 0){
+
+      if ($this->db->query($consulta)) {
+        
+            echo '<div class="alert alert-success alert-dismissible" id="correcto">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <i class="icon fa fa-check"></i>&nbsp;Prioridad registrada correctamente.
+              </div>';  
+        }else{
+          return false;
+        $this->db->liberar($consulta);
+        $this->db->close();
+        }
+      
+    }else{
+
+      $prioridad = $this->db->recorrer($verificar)[0];
+      if(strtolower($nombre_prio) == strtolower($prioridad)){
+        echo '<div class="alert alert-warning alert-dismissible" id="correcto">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <i class="icon fa fa-times"></i>&nbsp;La prioridad ya esta registrada.
+          </div>';
+      }
+    $this->db->liberar($verificar);
+    $this->db->close();
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
 /***************** lista de productos ****************/
 function listar_producto($valor, $inicio=FALSE,$limite=FALSE){
   if ($inicio!==FALSE && $limite!==FALSE) {
