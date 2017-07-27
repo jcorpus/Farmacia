@@ -43,6 +43,13 @@
                       </div>
                       <button type="button" onclick="reg_categoria()" class="btn btn-success "><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
                     </div>
+                    <div class="form-group">
+                      <label class="col-sm-1 control-label">Reporte</label>
+                      <div class="col-sm-8">
+                       <button type="button" class="btn btn-success" id="reporte_categoria"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Visualizar PDF</button>
+                       
+                       </div>
+                    </div>
               </div>
             </form>
             <div class="box-body">
@@ -159,7 +166,16 @@
 
 
 
+<script>
 
+      $("#reporte_categoria").click(function(){
+        window.open("view/reportes/reporte_categorias.php","blank");
+      });
+
+
+
+
+</script>
 
 
 

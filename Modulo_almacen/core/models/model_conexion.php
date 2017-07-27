@@ -11,7 +11,7 @@ define('YEAR_APLICACION', 'Derchos Reservados '.date('Y',time()).' - Farmacia');
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
-define('DB_NAME','farmacia');
+define('DB_NAME','famacita');
 
 date_default_timezone_set('America/Lima');
 

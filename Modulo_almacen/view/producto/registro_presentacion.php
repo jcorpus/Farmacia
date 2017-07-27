@@ -44,6 +44,13 @@
                     </div>
                     <button type="button" onclick="reg_presentacion()" class="btn btn-success btn-sm"><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
                 </div>
+                <div class="form-group">
+                      <label class="col-sm-1 control-label">Reporte</label>
+                      <div class="col-sm-8">
+                       <button type="button" class="btn btn-success" id="reporte_presentacion"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Visualizar PDF</button>
+                       
+                       </div>
+                </div>
               </div>
             </form>
             <div class="box-body">
@@ -165,7 +172,9 @@ $('#formulario_reg_pres').on('keyup keypress', function(e) {
   }
 });
 
-
+$("#reporte_presentacion").click(function(){
+  window.open("view/reportes/reporte_presentacion.php","blank");
+});
 
 
 </script>

@@ -23,6 +23,7 @@ $estado_prod = $_POST['estado_producto'];
 $presentacion_prod = $_POST['id_presentacion'];
 $fraccion_prod = $_POST['txtfraccion'];
 $concentracion_prod = $_POST['txtconcentracion'];
+$almacenn_prod = $_POST['alm_list2'];
 
 /*
 if (true) {
@@ -105,7 +106,7 @@ if(empty($nombre_prod)){
 			 </div>';
 	}else{
 	$inst = new Producto();
-	$consulta = $inst->registrar_producto($id_usuario2,$fecha_registro,$nombre_prod,$marca_prod,$tipo_prod,$categoria_prod,$fraccion_prod,$presentacion_prod,$concentracion_prod,$codigolote_prod,$reglasanitaria_prod,$fechavencimiento_prod,$unidadm_prod,$stockmin_prod,$preciocomp_prod,$stockmax_prod,$preciovent_prod,$cantidad_prod,$estado_prod);
+	$consulta = $inst->registrar_producto($id_usuario2,$fecha_registro,$nombre_prod,$marca_prod,$tipo_prod,$categoria_prod,$fraccion_prod,$presentacion_prod,$concentracion_prod,$codigolote_prod,$reglasanitaria_prod,$fechavencimiento_prod,$unidadm_prod,$stockmin_prod,$preciocomp_prod,$stockmax_prod,$preciovent_prod,$cantidad_prod,$estado_prod,$almacenn_prod);
 	echo $consulta;
 				}
 

@@ -3,6 +3,7 @@ cargar_unidad_medida();
 cargar_tipo_producto();
 cargar_categoria_producto();
 cargar_marca_producto();
+cargar_almacenes();
 
 //cargar_unidadm_producto();
 
@@ -127,5 +128,34 @@ function cargar_unidad_medida(){
 }
 
 
+
+
+function cargar_almacenes(){
+	var acciona = 'listaralm_opt'
+	$.ajax({
+		url:'controller/controller_reg_almacen.php',
+		type:'POST',
+		data:{acciona:acciona}
+	}).done(function(data){
+		var valores = JSON.parse(data);
+		//alert(valores.length);
+		if(valores.length>0){
+			var cadena = "";
+			for(var i = 0; i < valores.length;i++){
+				//cadena += "<option>Seleccionar</option>";
+				cadena += "<option value="+valores[i][1]+">"+valores[i][1]+"</option>";
+			}
+			$("#alm_list2").html(cadena);
+		}
+		else{
+			alert("no hay datos en tipo de producto");
+		}
+
+	}).fail(function(XMLHttpRequest,jqXHR, textStatus, errorThrown){
+		alert("ocurrio un error");
+	})
+
+
+}
 
 

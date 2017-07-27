@@ -12,10 +12,10 @@ function reg_categoria(){
   //var emaill = document.getElementById("get_pass_user").value;
   //var formusuario = new FormData($("#formulario_categoria")[0]);
   var txtcategoria = $("#txtcategoria").val();
-  var txtdescripcion = $("#txtdescripcion").val();
+  //var txtdescripcion = $("#txtdescripcion").val();
   var txtusuario = $("#usuarioa_id").val();
   var txtestadocat = $("#txtestado_categoria").val();
-  alert("datos: "+txtestadocat+" - "+txtdescripcion);
+ 
   //    data: 'tipo_usuario='+tipo_usuario+'&dato=r_titpo_user',
   var opcion = "registrar";
 

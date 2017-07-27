@@ -8,20 +8,21 @@ class Producto {
   }
 
 
-  function registrar_producto($id_usuario2,$fecha_registro,$nombre_prod,$marca_prod,$tipo_prod,$categoria_prod,$fraccion_prod,$presentacion_prod,$concentracion_prod,$codigolote_prod,$reglasanitaria_prod,$fechavencimiento_prod,$unidadm_prod,$stockmin_prod,$preciocomp_prod,$stockmax_prod,$preciovent_prod,$cantidad_prod,$estado_prod){
+  function registrar_producto($id_usuario2,$fecha_registro,$nombre_prod,$marca_prod,$tipo_prod,$categoria_prod,$fraccion_prod,$presentacion_prod,$concentracion_prod,$codigolote_prod,$reglasanitaria_prod,$fechavencimiento_prod,$unidadm_prod,$stockmin_prod,$preciocomp_prod,$stockmax_prod,$preciovent_prod,$cantidad_prod,$estado_prod,$almacenn_prod){
     $consulta = "INSERT INTO glb_producto(prod_Nom,marca_id,tppro_id,cate_id,lote_id,usu_id,prod_umed,prod_nrsa,prod_fvc,prod_stmx,prod_stmin,prod_prcm,prod_prvt,prod_cant,prod_freg,prod_est) VALUES('$nombre_prod','$marca_prod','$tipo_prod','$categoria_prod','$codigolote_prod','$id_usuario2','$unidadm_prod','$reglasanitaria_prod','$fechavencimiento_prod','$stockmax_prod','$stockmin_prod','$preciocomp_prod','$preciovent_prod','$cantidad_prod','$fecha_registro','$estado_prod')";
-
-    $consulta2 = "INSERT INTO alm_detpresentacion(prod_id,pres_id,dtpre_Concet,dtpre_fraccion)
-        VALUES(LAST_INSERT_ID(),'$presentacion_prod','$concentracion_prod','$fraccion_prod')";
-
+/*
+    $consulta2 = "INSERT INTO alm_almacen(alm_id,prod_id,prod_cant)
+        VALUES('$almacenn_prod',LAST_INSERT_ID(),'$cantidad_prod')";
+*/
       if ($this->db->query($consulta)) {
-          if($this->db->query($consulta2)){
-            echo '<div class="alert alert-success alert-dismissible" id="correcto">
+              /*
+              echo '<div class="alert alert-success alert-dismissible" id="correcto">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
               <i class="icon fa fa-check"></i>&nbsp;Producto registrada correctamente.
               </div>'; 
-
-          }else{echo "error";}
+              */
+              $id_retornado = mysqli_insert_id($this->db);
+              return $id_retornado;
          
         }else{
         
@@ -36,8 +37,32 @@ class Producto {
     }
 
 
+  function registrar_detalle_presentacion($id_producto,$presentacion_id,$concentracion_id,$fraccion_id){
+    $consulta = "INSERT INTO alm_detpresentacion(prod_id,pres_id,dtpre_Concet,dtpre_fraccion) VALUES('$id_producto','$presentacion_id','$concentracion_id','$fraccion_id')";
+
+      if ($this->db->query($consulta)) {
+
+          echo '<div class="alert alert-success alert-dismissible" id="correcto">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <i class="icon fa fa-check"></i>&nbsp;Producto registrada correctamente.
+              </div>'; 
+               
+        }else{
+        
+          echo '<div class="alert alert-warning alert-dismissible" id="correcto">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <i class="icon fa fa-times"></i>&nbsp;ocurrio un error.
+          </div>';
+        return false;
+        $this->db->liberar($consulta);
+        $this->db->close();
+        }
+    }
 
   
+
+
+
 
 
 
@@ -212,9 +237,9 @@ class Producto {
 /***************** lista de productos ****************/
 function listar_producto($valor, $inicio=FALSE,$limite=FALSE){
   if ($inicio!==FALSE && $limite!==FALSE) {
-    $sql = "SELECT * FROM glb_producto WHERE glb_producto.prod_Nom LIKE '%".$valor."%' ORDER BY glb_producto.prod_id DESC LIMIT $inicio,$limite";
+    $sql = "SELECT p.prod_id,p.prod_Nom,alm_marca.marca_desc, alm_tipo_producto.tppro_des,alm_categoria.cate_desc,alm_lote.lote_desc, p.prod_umed, p.prod_fvc, p.prod_stmx, p.prod_stmin, p.prod_prcm, p.prod_prvt, p.prod_cant from glb_producto p INNER JOIN alm_marca ON p.marca_id = alm_marca.marca_id INNER JOIN alm_tipo_producto ON p.tppro_id = alm_tipo_producto.tppro_id INNER JOIN alm_categoria ON p.cate_id = alm_categoria.cate_id INNER JOIN alm_lote ON p.lote_id = alm_lote.lote_id WHERE p.prod_Nom LIKE '%".$valor."%' ORDER BY p.prod_id DESC LIMIT $inicio,$limite";
   }else{
-    $sql = "SELECT * FROM glb_producto WHERE glb_producto.prod_Nom LIKE '%".$valor."%' ORDER BY glb_producto.prod_id DESC";
+    $sql = "SELECT p.prod_id,p.prod_Nom,alm_marca.marca_desc, alm_tipo_producto.tppro_des,alm_categoria.cate_desc,alm_lote.lote_desc, p.prod_umed, p.prod_fvc, p.prod_stmx, p.prod_stmin, p.prod_prcm, p.prod_prvt, p.prod_cant from glb_producto p INNER JOIN alm_marca ON p.marca_id = alm_marca.marca_id INNER JOIN alm_tipo_producto ON p.tppro_id = alm_tipo_producto.tppro_id INNER JOIN alm_categoria ON p.cate_id = alm_categoria.cate_id INNER JOIN alm_lote ON p.lote_id = alm_lote.lote_id LIKE '%".$valor."%' ORDER BY p.prod_id DESC";
   }
   $resultado = $this->db->query($sql);
 

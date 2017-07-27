@@ -33,7 +33,7 @@
                 <div class="form-group">
                   <label  class="col-sm-2 control-label">Nombre</label>
                   <div class="col-sm-4">
-                    <input type="text" name="txtproducto" onkeypress="return solo_letras(event);" class="form-control validacion" value="" id="txtproducto" placeholder="nombre producto" maxlength="40">
+                    <input type="text" name="txtproducto" onkeypress="return solo_letras(event);" class="form-control validacion" required="" value="" id="txtproducto" placeholder="nombre producto" maxlength="40">
                   </div>
                   <label  class="col-sm-2 control-label">Marca</label>
                   <div class="col-sm-4">
@@ -132,9 +132,8 @@
                     </div>
                   <label  class="col-sm-2 control-label">Almacen</label>
                   <div class="col-sm-4">
-                    <select class="form-control" name="" id="">
-                      <option value="">Almacen 1</option>
-                      <option value="">Almance 2</option>
+                    <select class="form-control" name="alm_list2" id="alm_list2">
+
                     </select>
                   </div>
                 </div>
@@ -164,20 +163,21 @@
                         <input type="text" name="txtconcentracion" class="form-control validacion"  value="" id="txtconcentracion" placeholder="Concentracion" maxlength="50">
                     </div>
                   </div>
-                  <button type="button" name="buscar" onclick="agregar_present()" id="buscar" class="btn btn-success btn-sm">Agregar &nbsp;&nbsp;<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></button>
+                  <button type="button" name="buscar" onclick="agregar_present()" class="btn btn-success btn-sm">Agregar &nbsp;&nbsp;<i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></button>
                 </div>
 
                 </div>
                 <br>
-                <table class='table table-bordered table-hover table-striped'>
+                <table class='table table-bordered table-hover table-striped' id="tabla_presentacionn">
                   <thead>
                   <tr class='success'>
+                    <th>id</th>
                     <th>Presentación</th>
                     <th>Concentración</th>
                     <th>Fracción</th>
                   </tr>
                   </thead>
-                  <tbody class="tablapen">
+                  <tbody class="tablapen" id="presentacion_deta">
                     
                   </tbody>
                 </table>
@@ -188,6 +188,13 @@
               <div class="box-footer text-center">
                 <button type="button" onclick="reg_producto()" class="btn btn-success btn-lg"><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
               </div>
+              <div class="form-group">
+                      <label class="col-sm-1 control-label">Reporte</label>
+                      <div class="col-sm-8">
+                       <button type="button" class="btn btn-success" id="reporte_producto"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Visualizar PDF</button>
+                       
+                       </div>
+                </div>
               <!-- /.box-footer -->
             </form>
           </div>
@@ -268,9 +275,9 @@
 
 
 
-
-
-
+<script src="html/javascript/reg_producto.js"></script>
+<script src="html/javascript/listar_select.js"></script>
+<script src="html/javascript/list_presentacion2.js"></script>
 
 
 <style>
@@ -283,9 +290,7 @@
 </style>
 
 
-<script src="html/javascript/reg_producto.js"></script>
-<script src="html/javascript/listar_select.js"></script>
-<script src="html/javascript/list_presentacion2.js"></script>
+
 <script>
   $('.file-input').on('change', function() {
     previewImage(this);
@@ -318,11 +323,77 @@ function agregar_present(){
 var present = $("#npresentacion2").val();
 var concen = $("#txtconcentracion").val();
 var fracci = $("#txtfraccion").val();
-   $(".tablapen").append('<tr><td>'+present+'</td><td>'+concen+'</td><td>'+fracci+'</tr>');
+var id_presenttt = $("#id_presentacion").val();
+   $(".tablapen").append('<tr><td>'+id_presenttt+'</td><td>'+present+'</td><td>'+concen+'</td><td>'+fracci+'</tr>');
 }
+
+function registrar_detalle_presentacion(id_producto){
+  var arreglo_fraccion = new Array();
+  var arreglo_concentracion = new Array();
+  var arreglo_id_presentacion = new Array();
+ $("#tabla_presentacionn tbody#presentacion_deta tr").each(function (){
+      arreglo_id_presentacion.push($(this).find('td').eq(0).text());
+  });
+  $("#tabla_presentacionn tbody#presentacion_deta tr").each(function (){
+      arreglo_concentracion.push($(this).find('td').eq(2).text());
+  });
+  $("#tabla_presentacionn tbody#presentacion_deta tr").each(function (){
+      arreglo_fraccion.push($(this).find('td').eq(3).text());
+  });
+  var fraccio = arreglo_fraccion.toString();
+  var concent = arreglo_concentracion.toString();
+  var arrayprent = arreglo_id_presentacion.toString();
+  //alert("datos de la tabla son:"+arrayprent+" "+fraccio+"el id es:"+id_producto);
+  var mensaje_producto;
+  $.ajax({
+    url:'controller/controller_detalle_present.php',
+    type: 'POST',
+    data: {
+      fraccio:fraccio,
+      concent:concent,
+      //id_presentacion:id_presentacion,
+      id_producto:id_producto,
+      arrayprent:arrayprent
+    },
+    cache:false,  //si el navegador debe almacenar en cache la pagina solicitada
+    //contentType: false, //"application / x-www-form-urlencoded"
+    //processData: false, //
+    beforeSend: function(){
+    },
+    complete: function(){
+      //alert("se completo el envio");
+    },
+    success: function(data){
+      /*
+    mensaje_producto = '<div class="alert alert-dismissible alert-success"> ';
+    mensaje_producto += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+    mensaje_producto += ' <p> Enviado correctamente .....</p>'
+    mensaje_producto += '</div>';
+    document.getElementById('msj_res_producto').innerHTML = mensaje_producto;
+    */
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown, jqXHR){
+      alert("SE PRODUJO UN ERROR, vuelve a recargar la pagina");
+    }
+
+  });
+
+
+}
+
+
 
 
 
 
 </script>
 
+<script>
+  
+      $("#reporte_producto").click(function(){
+        window.open("view/reportes/reporte_producto.php","blank");
+      });
+
+      
+
+</script>

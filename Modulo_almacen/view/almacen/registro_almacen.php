@@ -120,7 +120,7 @@
                               <label  class="col-sm-3 control-label">Nombre Almacen.</label>
                                 <div class="col-sm-6">
                                   <input type="text" name="txtalmacen2" id="txtalmacen2" class="form-control">
-                                  <input type="text"  id="id_almacen2">
+                                  <input hidden="" type="text"  id="id_almacen2">
                                 </div>
                             </div>
                             <div class="form-group">

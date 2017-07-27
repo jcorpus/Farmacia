@@ -18,12 +18,12 @@
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Datos de lote</h3>
+              <h3 class="box-title">Registro de lote</h3>
             </div>
 
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" id="formulario_marca">
+            <form class="form-horizontal" id="formulario_lote">
               <div class="box-body">
                 <!--Mensaje de registro-->
                 <div class="" id="msj_lote">
@@ -43,6 +43,13 @@
                         </select>
                     </div>
                     <button type="button" onclick="reg_lote()" class="btn btn-success btn-sm"><i class="fa fa-floppy-o" aria-hidden="true"></i>&ensp;   Registrar</button>
+                </div>
+                <div class="form-group">
+                      <label class="col-sm-1 control-label">Reporte</label>
+                      <div class="col-sm-8">
+                       <button type="button" class="btn btn-success" id="reporte_lote"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Visualizar PDF</button>
+                       
+                       </div>
                 </div>
               </div>
             </form>
@@ -84,7 +91,15 @@
 
 <script src="html/javascript/reg_lote.js"></script>
 <script src="html/javascript/list_lote.js"></script>
-<script></script>
+<script>
+  
+      $("#reporte_lote").click(function(){
+        window.open("view/reportes/reporte_lote.php","blank");
+      });
+
+      
+
+</script>
 <?php 
 
 /*

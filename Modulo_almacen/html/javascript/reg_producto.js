@@ -65,8 +65,16 @@ function reg_producto(){
       
     },
 		success: function(data){
-      
-    document.getElementById('msj_res_producto').innerHTML = data;
+    //alert("los datos son:"+data);
+    if(data > 1){
+    var codigo_producto = JSON.parse(data);
+    registrar_detalle_presentacion(codigo_producto);
+        msjpass = '<div class="alert alert-dismissible alert-success"> ';
+        msjpass += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+        msjpass += ' <p>Producto Registrado Correctamente</p>'
+        msjpass += '</div>';
+
+    document.getElementById('msj_res_producto').innerHTML = msjpass;
     $("#nombre_trabajador").val('');
     $("#apep_trabajador").val('');
     $("#apem_trabajador").val('');
@@ -75,6 +83,10 @@ function reg_producto(){
     $("#email_trabajador").val('');
     $("#codigo_trabajador").val('');
     $("#dni_trabajador").val('');
+    }else{
+      alert("faltan datos");
+    }
+
   
     /*
 

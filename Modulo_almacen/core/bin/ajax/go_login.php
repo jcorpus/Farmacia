@@ -22,8 +22,10 @@ if(!empty($_POST['user']) and !empty($_POST['pass'])){
 
 
        $_SESSION['app_id'] = $db->recorrer($sql)[0]; //le asigno la sesion al usuario que ingresa en la consulta de arriba.
+       
        $obtener_id = $_SESSION['app_id'];
        $fecha_ingreso = date('Y-m-d');
+       
       echo 1; 
 
 

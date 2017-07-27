@@ -38,7 +38,7 @@
                 <div class="form-group">
                  <label  class="col-sm-2 control-label">Numero Notas de ingreso.</label>
                       <div class="col-sm-2">
-                        <input type="text" name="txtcategoria" id="txtcategoria" class="form-control">
+                        <input type="text" onkeypress="return solo_numeros(event);" name="txtcategoria" id="txtcategoria" class="form-control">
                       </div>
                   <label  class="col-sm-2 control-label">Fecha d Ingreso</label>
                   <div class="col-sm-4">
@@ -86,6 +86,13 @@
                         </select>
                       </div>
                 </div>
+                <div class="form-group">
+                 <label  class="col-sm-2 control-label">Cantidad orden d compra</label>
+                      <div class="col-sm-2">
+                        <input disabled="" type="text" name="id_ordenc" id="ntiponoi" class="form-control">
+                      </div>
+                </div>
+
               </div>
             </form>
 
@@ -93,13 +100,11 @@
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Registro</th>
-                    <th>Item</th>
-                    <th>Nom Producto</th>
-                    <th>Orden Compra</th>
-                    <th>Cantidad</th>
-                    <th>Consto Compra</th>
-                    <th>Costo Total</th>
+                    <th>Nombre produc</th>
+                    <th>cantidad</th>
+                    <th> id orden de compra</th>
+                    <th>fecha de entrega</th>
+                    <th>estado</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -109,8 +114,6 @@
                     <td>producto1</td>
                     <td>or343</td>
                     <td>3</td>
-                    <td>30</td>
-                    <td>90</td>
                   </tr>
                 </tbody>
               </table>
@@ -287,7 +290,7 @@
 
 
 
-
+<script scr="html/javascript/validaciones.js"></script>
 <script src="html/javascript/reg_nota_ingreso.js"></script>
 <script src="html/javascript/list_ordedcompra.js"></script>
 <script src="html/javascript/reg_tiponotai.js"></script>

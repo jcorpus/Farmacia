@@ -94,12 +94,12 @@ else if($_GET['p'] =='reg_nota_salida'){
 /************ INVENTARIO ***********/
 else if($_GET['p'] =='reg_inventario'){
 	$titulo = 'Registro de Inventario';
-	$contenido = 'view/notas/reg_nota_salida.php';
+	$contenido = 'view/inventario/reg_inventario.php';
 
 }
 else if($_GET['p'] =='reg_tipo_inventario'){
 	$titulo = 'Registro de Tipo de Inventario';
-	$contenido = 'view/notas/reg_nota_salida.php';
+	$contenido = 'view/inventario/reg_tipo_inventario.php';
 
 }
 else if($_GET['p'] =='apertura_inventario'){

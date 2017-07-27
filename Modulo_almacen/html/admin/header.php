@@ -171,8 +171,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar Inv</a></li>
-            <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Tipo de Invent.</a></li>
+            <li><a href="?p=reg_inventario"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Registrar Inv</a></li>
+            <li><a href="?p=reg_tipo_inventario"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Tipo de Invent.</a></li>
             <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Apertura de Inventario</a></li>
             <li><a href="?p=reg_kardex"><i class="fa fa-plus" aria-hidden="true"></i>&ensp;Cierre de Inventario</a></li>
           </ul>

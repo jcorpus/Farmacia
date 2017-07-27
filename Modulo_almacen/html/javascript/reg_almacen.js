@@ -16,7 +16,7 @@ function reg_almacen(){
   var txtusuario = $("#usuarioa_id").val();
   var txtestadoa = $("#txtestado_almacen").val();
   //alert("datos: "+txtusuario+" - "+txtlote);
-
+  var acciona = 'registraralm';
 
   var msj_cat;
   /// metodos de ajax aqui http://www.w3schools.com/jquery/ajax_ajaxsetup.asp
@@ -27,7 +27,8 @@ function reg_almacen(){
       txtalmacenn:txtalmacenn,
       txtdireccionalm:txtdireccionalm,
       txtusuario:txtusuario,
-      txtestadoa:txtestadoa
+      txtestadoa:txtestadoa,
+      acciona:acciona
     },
     cache:false,  //si el navegador debe almacenar en cache la pagina solicitada
     //contentType: false, //"application / x-www-form-urlencoded"

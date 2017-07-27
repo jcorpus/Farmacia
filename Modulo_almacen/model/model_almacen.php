@@ -47,12 +47,11 @@ class Almacen {
   }
 
 
-
 function listar_almacen($valor, $inicio=FALSE,$limite=FALSE){
   if ($inicio!==FALSE && $limite!==FALSE) {
-    $sql = "SELECT * FROM alm_almacen WHERE alm_almacen.alm_nom LIKE '%".$valor."%' ORDER BY alm_almacen.alm_id DESC LIMIT $inicio,$limite";
+    $sql = "SELECT *, CASE alm_almacen.alm_est WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' END estado FROM alm_almacen WHERE alm_almacen.alm_nom LIKE '%".$valor."%' ORDER BY alm_almacen.alm_id DESC LIMIT $inicio,$limite";
   }else{
-    $sql = "SELECT * FROM alm_almacen WHERE alm_almacen.alm_nom LIKE '%".$valor."%' ORDER BY alm_almacen.alm_id DESC";
+    $sql = "SELECT *, CASE alm_almacen.alm_est WHEN 1 THEN 'Activo' WHEN 0 THEN 'Inactivo' END estado FROM alm_almacen WHERE alm_almacen.alm_nom LIKE '%".$valor."%' ORDER BY alm_almacen.alm_id DESC";
   }
   $resultado = $this->db->query($sql);
 
@@ -91,7 +90,23 @@ $this->db->close();
 }
 
 
+function listar_almacen_combo(){
+  $sql = "SELECT alm_id,alm_nom FROM alm_almacen WHERE alm_almacen.alm_est = 1";
+  $consulta = $this->db->query($sql);
+  $arreglo = array();
+  if($this->db->rows($consulta) > 0){
+    while($consulta_b =$this->db->recorrer($consulta)){
+      $arreglo[] = $consulta_b;
+    }
 
+  }else{
+    echo "no hay datos a mostrar";
+  }
+
+  $this->db->liberar($consulta);
+  $this->db->close();
+  return $arreglo;
+}
 
 
 

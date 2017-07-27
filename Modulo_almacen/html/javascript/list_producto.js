@@ -45,8 +45,8 @@ function listar_productos(valor,pagina){
 			cadena += "<th>Marca</th>";
 			cadena += "<th>tipo prod</th>";
 			cadena += "<th>categoria</th>";
-			cadena += "<th>unidad dm</th>";
-			cadena += "<th>regla snt</th>";
+			cadena += "<th>lote</th>";
+			cadena += "<th>unidad m</th>";
 			cadena += "<th>vencimiento</th>";
 			cadena += "<th>stock max</th>";
 			cadena += "<th>stock min</th>";
@@ -67,14 +67,14 @@ function listar_productos(valor,pagina){
 				cadena += "<td>"+valores[i][2]+"</td>";
 				cadena += "<td>"+valores[i][3]+"</td>";
 				cadena += "<td>"+valores[i][4]+"</td>";
+				cadena += "<td>"+valores[i][5]+"</td>";
+				cadena += "<td>"+valores[i][6]+"</td>";
+				cadena += "<td>"+valores[i][7]+"</td>";
 				cadena += "<td>"+valores[i][8]+"</td>";
 				cadena += "<td>"+valores[i][9]+"</td>";
 				cadena += "<td>"+valores[i][10]+"</td>";
 				cadena += "<td>"+valores[i][11]+"</td>";
 				cadena += "<td>"+valores[i][12]+"</td>";
-				cadena += "<td>"+valores[i][13]+"</td>";
-				cadena += "<td>"+valores[i][14]+"</td>";
-				cadena += "<td>"+valores[i][15]+"</td>";
 				cadena += "<td><div class='btn-group'> <button type='button' class='btn btn-success ' data-toggle='dropdown' aria-expanded='false'>Acción <span class='glyphicon glyphicon-cog'></span></button> <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'> <span class='caret'></span></button> <ul class='dropdown-menu' role='menu'> <li><a href='#' data-toggle='modal' data-target='#myModal_modificara' onclick='mostrar_almacen("+'"'+datos_array+'"'+");'>Modificar</a></li> <li class='divider'></li> <li><a href='#' data-toggle='modal' data-target='#myModal_eliminar'  onclick='eliminar_almacen("+'"'+datos_array+'"'+");' >Eliminar</a></li> </ul> </div></td>";
 				cadena += "</tr>";
 
